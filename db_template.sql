@@ -6,55 +6,55 @@ CREATE SCHEMA IF NOT EXISTS `forum` ;
 USE `forum` ;
 
 CREATE TABLE IF NOT EXISTS `forum`.`users` (
-  `idusers` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(255) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   `role` ENUM('Admin', 'Moderator', 'User') NOT NULL DEFAULT 'User',
   `date` DATETIME NOT NULL,
   `is_deleted` TINYINT(1) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`idusers`))
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `forum`.`categories` (
-  `idcategory` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `date` DATETIME NOT NULL,
   `is_deleted` TINYINT NOT NULL DEFAULT 0,
-  PRIMARY KEY (`idcategory`))
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
 CREATE TABLE IF NOT EXISTS `forum`.`subcategories` (
-  `idsubcategories` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `date` DATETIME NOT NULL,
   `is_deleted` TINYINT(1) NOT NULL DEFAULT 0,
   `categorie_id` INT NOT NULL,
-  PRIMARY KEY (`idsubcategories`))
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
 CREATE TABLE IF NOT EXISTS `forum`.`topics` (
-  `idtopics` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `content` TEXT NOT NULL,
   `date` DATETIME NOT NULL,
   `is_deleted` TINYINT(1) NOT NULL DEFAULT 0,
   `subcategory_id` INT NOT NULL,
   `user_id` INT NOT NULL,
-  PRIMARY KEY (`idtopics`))
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
 CREATE TABLE IF NOT EXISTS `forum`.`comments` (
-  `idcomments` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `content` TEXT NOT NULL,
   `date` DATETIME NOT NULL,
   `is_deleted` TINYINT(1) NOT NULL DEFAULT 0,
   `topic_id` INT NOT NULL,
   `user_id` INT NOT NULL,
-  PRIMARY KEY (`idcomments`))
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
