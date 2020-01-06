@@ -1,0 +1,137 @@
+body {
+  background-color: #f7f7f7;
+  max-width: 100%;
+}
+
+header {
+  background: linear-gradient(to right,  #0e68b2 1%,#005cd6 35%,#005cd6 69%,#2a55aa 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+aside {
+  padding: 10px;
+  width: 20%;
+}
+
+main {
+  padding: 15px;
+  width: 78%;
+  margin-left: 2%;
+}
+
+header li {
+  list-style-type: none;  width: 10%;
+}
+
+header li a {
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+  border-right: 2px solid white;
+  color: #cbcbcb;
+}
+
+header ul {
+  display: flex;
+}
+
+header li a:last-child {
+  border-right: none;
+}
+
+header li a:hover {
+  /* background-color: #001e63; */
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.blocaccueil {
+  box-shadow: 0px 0px 22px -5px rgba(170,170,170,1);
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+aside {
+  padding: 30px;
+  background: white;
+  min-height: 92vh;
+}
+
+.nopadding {
+  padding: 0 !important;
+    margin: 0 !important;
+}
+
+input {
+  width: 100%;
+}
+
+.inputlogin {
+  border: 1px solid #747474;
+  padding: 6px;
+  color: #747474;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+.inputsubmit {
+  background: linear-gradient(to right,  #0e68b2 1%,#005cd6 35%,#005cd6 69%,#2a55aa 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  border: 0px;
+  color:white;
+  padding: 4px;
+}
+
+.blocgauche {
+  padding: 15px;
+  margin-top: 20px;
+  border: 1px solid #106bc9;
+  border-radius: 10px;
+}
+
+.blocategorie {
+  box-shadow: 0px 0px 22px -5px rgba(170,170,170,1);
+  background-color: white;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.titrecat {
+  background: linear-gradient(to right,  #0e68b2 1%,#005cd6 35%,#005cd6 69%,#2a55aa 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  color: white;
+  border-radius: 5px;
+}
+
+p {
+  margin-bottom: 0px !important;
+}
+
+.blocsouscat {
+  border-bottom: 1px solid #106bc9;
+  padding: 20px 15px;
+}
+.tittresouscat {
+  font-weight: 500;
+}
+
+.font-13 {
+  font-size: 13px;
+}
+
+a {
+  color:inherit;
+  text-decoration: none;
+ }
+
+ .menu {
+   padding-top: 10px;
+ }
+
+footer {
+  background: linear-gradient(to right,  #0e68b2 1%,#005cd6 35%,#005cd6 69%,#2a55aa 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  min-width: 100%;
+}
+
+.register { text-decoration: underline !important;
+font-weight: 500; }
