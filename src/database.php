@@ -14,6 +14,9 @@ function dbInit() {
 function dbExecute($sql, $args = []) {
     global $db;
     $query = $db->prepare($sql);
-    $query->execute($args);
+    foreach($args as $arg) {
+        $query->bindValue($arg[0], $arg[1], $arg[2]);
+    }
+    $query->execute();
     return $query->fetchAll();
 }
