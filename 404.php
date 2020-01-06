@@ -12,8 +12,8 @@
 </head>
 
 <body>
-    <div class="page404">
-        <div class="block404">
+    <div class="col-12 page404">
+        <div class="col-12 block404">
             <h1 class="title404">404</h1>
             <p class="text404">Oups ! Quelque chose ne va pas.</p>
             <a class="buttonBack" href="index.php"><i class="icon-home"></i> Retour à l'accueil</a>
