@@ -18,7 +18,7 @@
           <div class="row">
             <div class="col-8">
               <div style="padding: 10px;">
-                  <p>Ajouter un article</p>
+                  <p>Ajouter une categorie</p>
 
 
               </div>
@@ -28,7 +28,7 @@
             </div>
             <div class="col-2 text-right">
               <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-              Ajouter l'article
+              Ajouter la catégorie
               </button>
             </div>
           </div>
@@ -37,9 +37,13 @@
         </div>
 
           <div class="row p-25">
-<div class="col-12">
-  <textarea class="message" maxlength="255" placeholder="Écrire un commentaire public.." ></textarea>
+<div class="col-2"></div><div class="col-8">
+  <input type="text" class="inputlogin" name="" placeholder="Titre de la catégorie" value="">
 </div>
+<div class="col-2"></div> <div class="col-2"></div><div class="col-8">
+  <input type="text" class="inputlogin" name="" placeholder="Description de la catégorie" value="">
+</div>
+
 
                 </div>
     </div>

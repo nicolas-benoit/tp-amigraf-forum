@@ -38,12 +38,13 @@ olor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
 
           </div>
           <div class="col-2  text-right">
+            <a href="ajout-categorie.php">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Ajouter une categorie
-</button>
+</button></a>
           </div>
           <div class="col-2 text-right">
-            <button type="button" class="btn btn-secondary">
+            <button type="button" class="btn btn-danger">
   Supprimer la categorie
 </button>
           </div>
@@ -73,11 +74,7 @@ olor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
         Ajouter une sous categorie
         </button>
             </div>
-            <div class="col-3 text-right">
-              <button type="button" class="btn btn-danger">
-        Supprimer une sous categorie
-        </button>
-        </div>
+
           </div>
 
     </main>

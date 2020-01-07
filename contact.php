@@ -41,24 +41,21 @@
           </div>
           <div class="col-6 pt-20">
                     <form class="" action="index.html" method="post">
+                      <label for="pseudo2">Votre pseudo</label>
+                    <input type="text" class="inputlogin" name="pseudo" placeholder="Pseudo" id="pseudo2">
+                    <label for="mail">Votre e-mail</label>
+                    <input type="mail" class="inputlogin" name="mail" placeholder="Votre adresse e-mail" id="mail">
+                    <label for="message">Votre message</label>
+                    <textarea class="message" placeholder="Ecrivez nous ici.." id="message"></textarea>
 
-
-                    <input type="text" class="inputlogin" name="pseudo" placeholder="Pseudo">
-                    <input type="mail" class="inputlogin" name="mail" placeholder="Votre adresse e-mail">
-                    <textarea class="message" placeholder="Votre message"></textarea>
-                        </form>
           </div>
           <div class="col-2">
-
           </div>
         </div>
             <div class="d-flex justify-content-center">
               <input type="submit" class="inputsubmit2" name="register" value="Envoyer le message">
-
           </div>
-
-
-
+        </form>
       </div>
     </main>
         </div>

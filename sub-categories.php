@@ -26,9 +26,10 @@
   </button>
             </div>
             <div class="col-2 text-right">
+              <a href="ajout-article.php">
               <button type="button" class="btn btn-secondary">
-  Ajouter un article
-  </button>
+                Ajouter un article
+              </button></a>
             </div>
             <div class="col-2 text-right">
 
