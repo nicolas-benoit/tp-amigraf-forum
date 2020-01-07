@@ -24,7 +24,7 @@ olor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
 
           </div>
             <div class="col-4">
-              <img src="" alt="">
+              <img src="img/avengers2.png" width="100%" alt="">
               </div>
       </div>
     </div>

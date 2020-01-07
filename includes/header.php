@@ -3,7 +3,7 @@
     <div class="col-3">
       <div class="logo">
           <div class="mt-10">
-        <img width="40%" src="img/logo-avengers.png" alt="">
+        <a href="index.php"><img width="40%" src="img/logo-avengers.png" alt=""></a>
           </div>
 
       </div>
