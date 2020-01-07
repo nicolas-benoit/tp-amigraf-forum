@@ -77,3 +77,10 @@ function userIsSendable($user) {
 
     return $usernameIsSet && $passwordIsSet && $emailIsSet && $roleIsSet && $dateIsSet;
 }
+
+function pullUserCount() {
+    dbInit();
+    $sql="SELECT count(*) AS count FROM users WHERE is_deleted=0;";
+    $count = dbExecute($sql);
+    return intval($count[0]["count"]);
+}
