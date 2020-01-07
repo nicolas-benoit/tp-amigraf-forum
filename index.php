@@ -1,9 +1,13 @@
 <?php
     include_once "src/category.php";
+    include_once "src/subcategory.php";
 
-    //$category = createCategory("Test", date("Y-m-d H:i:s"));
-    $category = pullCategory(3);
-    forgetCategory($category);
+    $cat = pullCategory(1);
+
+    //$subcategory = createSubcategory("Test", date("Y-m-d H:i:s"));
+    $subcategory = pullSubcategory(3);
+    $subcategory = linkCategoryToSubcategory($subcategory, $cat);
+    updateSubcategory($subcategory);
 ?>
 
 <!DOCTYPE html>
