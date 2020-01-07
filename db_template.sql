@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `forum`.`subcategories` (
   `name` VARCHAR(255) NOT NULL,
   `date` DATETIME NOT NULL,
   `is_deleted` TINYINT(1) NOT NULL DEFAULT 0,
-  `categorie_id` INT NOT NULL,
+  `category_id` INT NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
