@@ -54,3 +54,11 @@ function linkCategoryToSubcategory($subcategory, $category) {
     $subcategory["category_id"] = $category["id"];
     return $subcategory;
 }
+
+function subcategoryIsSendable($subcategory) {
+    $nameIsSet = isset($subcategory["name"]) && !empty($subcategory["name"]);
+    $dateIsSet = isset($subcategory["date"]) && !empty($subcategory["date"]);
+    $categoryIdIsSet = isset($subcategory["category_id"]) && !empty($subcategory["category_id"]);
+
+    return $nameIsSet && $dateIsSet && $categoryIdIsSet;
+}

@@ -75,3 +75,13 @@ function linkUserToTopic($topic, $user) {
     $topic["user_id"] = $user["id"];
     return $topic;
 }
+
+function topicIsSendable($topic) {
+    $nameIsSet = isset($topic["name"]) && !empty($topic["name"]);
+    $contentIsSet = isset($topic["content"]) && !empty($topic["content"]);
+    $dateIsSet = isset($topic["date"]) && !empty($topic["date"]);
+    $subcategoryIdIsSet = isset($topic["subcategory_id"]) && !empty($topic["subcategory_id"]);
+    $userIdIsSet = isset($topic["user_id"]) && !empty($topic["user_id"]);
+
+    return $nameIsSet && $contentIsSet && $dateIsSet && $subcategoryIdIsSet && $userIdIsSet;
+}

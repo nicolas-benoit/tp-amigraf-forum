@@ -45,3 +45,10 @@ function forgetCategory($category) {
         [":id", $category["id"], PDO::PARAM_INT]
     ]);
 }
+
+function categoryIsSendable($category) {
+    $nameIsSet = isset($category["name"]) && !empty($category["name"]);
+    $dateIsSet = isset($category["date"]) && !empty($category["date"]);
+
+    return $nameIsSet && $dateIsSet;
+}

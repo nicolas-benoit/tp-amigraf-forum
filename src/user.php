@@ -66,3 +66,14 @@ function forgetUser($user) {
         [":id", $user["id"], PDO::PARAM_INT]
     ]);
 }
+
+function userIsSendable($user) {
+    $usernameIsSet = isset($user["username"]) && !empty($user["username"]);
+    $passwordIsSet = isset($user["password"]) && !empty($user["password"]);
+    $emailIsSet = isset($user["email"]) && !empty($user["email"]);
+    $roleIsSet = ($user["role"] == "User" or $user["role"] == "Moderator" or $user["role"] == "Admin");
+    $dateIsSet = isset($user["date"]) && !empty($user["date"]);
+
+
+    return $usernameIsSet && $passwordIsSet && $emailIsSet && $roleIsSet && $dateIsSet;
+}

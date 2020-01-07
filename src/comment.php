@@ -75,3 +75,12 @@ function linkUserToComment($comment, $user) {
     $comment["user_id"] = $user["id"];
     return $comment;
 }
+
+function commentIsSendable($comment) {
+    $contentIsSet = isset($comment["content"]) && !empty($comment["content"]);
+    $dateIsSet = isset($comment["date"]) && !empty($comment["date"]);
+    $topicIdIsSet = isset($comment["topic_id"]) && !empty($comment["topic_id"]);
+    $userIdIsSet = isset($comment["user_id"]) && !empty($comment["user_id"]);
+
+    return $contentIsSet && $dateIsSet && $topicIdIsSet && $userIdIsSet;
+}
