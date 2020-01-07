@@ -1,8 +1,22 @@
+<?php
+
+include_once "src/user.php";
+include_once "src/utils.php";
+
+if (!isset($_GET["id"]) || intval($_GET["id"]) <= 0)
+    redirect("404.php");
+
+$user = pullUser($_GET["id"]);
+
+if (empty($user))
+    redirect("404.php");
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 
 <head>
-
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <meta charset="utf-8">
@@ -17,14 +31,14 @@
         <section class="col-12 col-md-8 contentProfile_Block">
             <div class="usernameBlock">
                 <div class="usernameBlock">
-                    <h2 class="username">Tout à propos de {Username}</h2>
+                    <h2 class="username">Tout à propos de <?= $user["username"]?></h2>
                 </div>
             </div>
             <div class="contentBlock">
                 <ul>
-                    <li class="listContent my-3">Genre :</li>
-                    <li class="listContent my-3">Rôle :</li>
-                    <li class="listContent my-3">Date d'inscription :</li>
+                    <li class="listContent my-3">Email : <?= $user["email"] ?></li>
+                    <li class="listContent my-3">Rôle : <?= $user["role"] ?></li>
+                    <li class="listContent my-3">Date d'inscription : <?= $user["date"] ?></li>
                     <li class="listContent my-3">Date de naissance :</li>
                     <li class="listContent my-3">Nombre de messages : </li>
                     <li class="listContent my-3">Liste des sujets :
@@ -54,7 +68,7 @@
         </section>
         <section class="col-12 col-md-3 imgProfile_Block">
             <div class="usernameBlock">
-                <h2 class="username">Nom du User</h2>
+                <h2 class="username"><?= $user["username"]?></h2>
             </div>
             <div class="imgBlock">
                 <img src="img/kirby.png" alt="image profile">
