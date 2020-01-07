@@ -36,10 +36,10 @@
           </div>
         </div>
         <div class="row align-items-center">
-          <div class="col-2">
+          <div class="col-3">
 
           </div>
-          <div class="col-8 pt-20">
+          <div class="col-6 pt-20">
                     <form class="" action="index.html" method="post">
 
 

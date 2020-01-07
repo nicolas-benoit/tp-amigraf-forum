@@ -11,6 +11,7 @@
         <nav>
           <ul>
             <li><a href="index.php">Accueil</a></li>
+            <li><a href="avengers.php">Les avengers</a></li>
             <li><a href="faq.php">FAQ</a></li>
             <li><a href="members.php">Membres</a></li>
             <li><a href="contact.php">Contact</a></li>

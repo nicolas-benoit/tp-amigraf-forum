@@ -4,7 +4,7 @@ body {
 }
 
 header {
-  background: linear-gradient(to right,  #0e68b2 1%,#005cd6 35%,#005cd6 69%,#2a55aa 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: #2f2f2f; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 aside {
@@ -181,4 +181,13 @@ p {
 
 .p-25 {
   padding: 25px;
+}
+
+.topica:hover {
+  text-decoration: none;
+  background-color: #F7F7F7;
+  color: inherit;
+}
+.titrecat button {
+  margin-top: 2px;
 }
