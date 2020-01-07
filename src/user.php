@@ -27,6 +27,12 @@ function pushUser($user) {
     ]);
 }
 
+function pullUser($id) {
+    dbInit();
+    $user = dbExecute("SELECT * FROM users WHERE id=:id;", [[":id", $id, PDO::PARAM_INT]]);
+    return $user[0];
+}
+
 function updateUser($user) {
     dbinit();
     $sql = "UPDATE users SET username=:username, password=:password, email=:email, role=:role, date=:date WHERE id=:id;";
@@ -39,12 +45,6 @@ function updateUser($user) {
         [":role", $user["role"], PDO::PARAM_STR],
         [":date", $user["date"], PDO::PARAM_STR]
     ]);
-}
-
-function pullUser($id) {
-    dbInit();
-    $user = dbExecute("SELECT * FROM users WHERE id=:id;", [[":id", $id, PDO::PARAM_INT]]);
-    return $user[0];
 }
 
 function pullUserList($amount = 20, $offset = 0) {

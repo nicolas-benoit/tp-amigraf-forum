@@ -1,3 +1,11 @@
+<?php
+    include_once "src/category.php";
+
+    //$category = createCategory("Test", date("Y-m-d H:i:s"));
+    $category = pullCategory(3);
+    forgetCategory($category);
+?>
+
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 
