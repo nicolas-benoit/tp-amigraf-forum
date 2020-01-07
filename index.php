@@ -2,12 +2,10 @@
     include_once "src/user.php";
     include_once "src/category.php";
     include_once "src/subcategory.php";
-
     include_once "src/topic.php";
+    include_once "src/comment.php";
 
-    //pushUser(createUser("nicolas", "test", "dsfds", "Admin", date("Y-m-d H:i:s")));
-
-    var_dump(pullTopicList());
+    //$comment = createComment("This is a comment", date("Y-m-d H:i:s"));
 ?>
 
 <!DOCTYPE html>
