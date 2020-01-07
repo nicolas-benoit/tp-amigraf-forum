@@ -1,13 +1,13 @@
 <?php
+    include_once "src/user.php";
     include_once "src/category.php";
     include_once "src/subcategory.php";
 
-    $cat = pullCategory(1);
+    include_once "src/topic.php";
 
-    //$subcategory = createSubcategory("Test", date("Y-m-d H:i:s"));
-    $subcategory = pullSubcategory(3);
-    $subcategory = linkCategoryToSubcategory($subcategory, $cat);
-    updateSubcategory($subcategory);
+    //pushUser(createUser("nicolas", "test", "dsfds", "Admin", date("Y-m-d H:i:s")));
+
+    var_dump(pullTopicList());
 ?>
 
 <!DOCTYPE html>
