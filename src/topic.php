@@ -1,5 +1,7 @@
 <?php
 
+include_once "src/database.php";
+
 function createTopic($name, $content, $date, $is_deleted = 0) {
     return [
         "id" => -1,
@@ -32,11 +34,12 @@ function pullTopic($id) {
     return $topic[0];
 }
 
-function pullTopicList($amount = 20, $offset = 0) {
+function pullTopicList($subcategory, $amount = 20, $offset = 0) {
     dbinit();
-    $sql = "SELECT * FROM topics WHERE is_deleted=0 ORDER BY date LIMIT :amount OFFSET :offset;";
+    $sql = "SELECT * FROM topics WHERE is_deleted=0 AND subcategory_id=:subcategory_id ORDER BY date LIMIT :amount OFFSET :offset;";
 
     $topicList = dbExecute($sql, [
+        [":category_id", $subcategory["id"], PDO::PARAM_INT],
         [":amount", $amount, PDO::PARAM_INT],
         [":offset", $offset, PDO::PARAM_INT]
     ]);

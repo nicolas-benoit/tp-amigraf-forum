@@ -27,6 +27,12 @@ function pullCategory($id) {
     return $category[0];
 }
 
+function pullCategoryList() {
+    dbInit();
+    $categoryList = dbExecute("SELECT * FROM categories WHERE is_deleted=0;");
+    return $categoryList;
+}
+
 function updateCategory($category) {
     dbinit();
     $sql = "UPDATE categories SET name=:name, date=:date WHERE id=:id;";

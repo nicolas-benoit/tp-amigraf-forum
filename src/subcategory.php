@@ -26,8 +26,16 @@ function pushSubcategory($subcategory) {
 
 function pullSubcategory($id) {
     dbInit();
-    $category = dbExecute("SELECT * FROM subcategories WHERE id=:id;", [[":id", $id, PDO::PARAM_INT]]);
-    return $category[0];
+    $subcategory = dbExecute("SELECT * FROM subcategories WHERE id=:id;", [[":id", $id, PDO::PARAM_INT]]);
+    return $subcategory[0];
+}
+
+function pullSubcategoryList($category) {
+    dbInit();
+    $subcategoryList = dbExecute("SELECT * FROM subcategories WHERE is_deleted=0 AND category_id=:category_id;", [
+        ["category_id", $category["id"], PDO::PARAM_INT]
+    ]);
+    return $subcategoryList;
 }
 
 function updateSubcategory($subcategory) {
