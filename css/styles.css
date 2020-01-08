@@ -15,7 +15,8 @@ aside {
 main {
   padding: 15px;
   width: 78%;
-  margin-left: 0.8%;
+  margin: 0 auto;
+
 }
 
 header li {

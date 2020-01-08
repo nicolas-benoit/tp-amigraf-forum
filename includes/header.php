@@ -1,3 +1,10 @@
+<?php
+include_once "src/user.php";
+include_once "src/session.php";
+if (checkIfConnected()) {
+  $user = pullUser($_SESSION["connectedUser"]);
+}
+ ?>
 <header>
   <div class="row nopadding">
     <div class="col-3">
@@ -8,7 +15,7 @@
 
       </div>
     </div>
-    <div class="col-9">
+    <div class="col-7">
       <div class="menu">
         <nav>
           <ul>
@@ -20,6 +27,20 @@
           </ul>
         </nav>
       </div>
+    </div>
+    <div class="col-2">
+      <div class="menu">
+        <nav>
+          <div class="row mt-1 float-right mr-1">
+            <?php if (isset($_SESSION['connectedUser'])): ?>
+              <a href="profilepage.php?id=<?= $_SESSION['connectedUser'] ?>"><button class="btn-success p-2 m-1" style="border: 0">Hey ! <?= $user["username"] ?></button></a>
+              <a href="logout.php"><button class="btn-danger p-2 m-1" style="border: 0">Se déconnecter</button></a>
+            <?php endif; ?>
+
+          </div>
+
+
+        </nav>
     </div>
   </div>
 
