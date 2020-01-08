@@ -39,7 +39,7 @@ function pullTopicList($subcategory, $amount = 20, $offset = 0) {
     $sql = "SELECT * FROM topics WHERE is_deleted=0 AND subcategory_id=:subcategory_id ORDER BY date LIMIT :amount OFFSET :offset;";
 
     $topicList = dbExecute($sql, [
-        [":category_id", $subcategory["id"], PDO::PARAM_INT],
+        [":subcategory_id", $subcategory["id"], PDO::PARAM_INT],
         [":amount", $amount, PDO::PARAM_INT],
         [":offset", $offset, PDO::PARAM_INT]
     ]);
