@@ -11,7 +11,7 @@ $user = pullUser($_GET["id"]);
 if (empty($user))
     redirect("404.php");
 
-
+$stat = pullUserStat($user);
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -40,7 +40,8 @@ if (empty($user))
                     <li class="listContent my-3">Rôle : <?= $user["role"] ?></li>
                     <li class="listContent my-3">Date d'inscription : <?= $user["date"] ?></li>
                     <li class="listContent my-3">Date de naissance :</li>
-                    <li class="listContent my-3">Nombre de messages : </li>
+                    <li class="listContent my-3">Nombre de topics : <?= $stat["topic_count"] ?></li>
+                    <li class="listContent my-3">Nombre de commentaires : <?= $stat["comment_count"] ?></li>
                     <li class="listContent my-3">Liste des sujets :
                         <ul class="row p-0 m-0 my-3">
                             <li class="col-12 col-md-2">
