@@ -1,3 +1,21 @@
+<?php
+
+include_once "src/topic.php";
+include_once "src/comment.php";
+include_once "src/user.php";
+include_once "src/utils.php";
+
+if (!isset($_GET["id"]) || intval($_GET["id"]) <= 0)
+    redirect("404.php");
+
+$topic = pullTopic($_GET["id"]);
+$commentList = pullCommentList($_GET["id"]);
+
+if (empty($topic))
+    redirect("404.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
@@ -18,7 +36,7 @@
           <div class="row">
             <div class="col-8">
               <div style="padding: 10px;">
-                  <p>Titre de la sous-catégorie</p>
+                  <p><?= $topic["name"] ?></p>
 
 
               </div>
@@ -40,11 +58,7 @@
 
           <div class="row p-25">
 
-            <h1>Titre de l'article </h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in <b>reprehenderit in voluptate</b> velit esse cillum dolore eu fugiat nulla pariatur. <u>Excepteur</u> sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <img src="http://www.redigeons.com/wp-content/uploads/2012/09/ecrire-un-article.jpg" alt="">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p><?= $topic["content"] ?></p>
       </div>
     </div>
     <div class="blocategorie">
@@ -71,53 +85,28 @@
           </div>
 
           </div>
+        <?php
+        foreach ($commentList as $comment) {
+            $user = pullUser($comment["user_id"]);
+        ?>
         <div class="col-12 blocsouscat">
           <div class="row">
             <div class="col-6">
-              <p class="tittresouscat">Par Inoxz</p>
+              <p class="tittresouscat">Par <?= $user["username"] ?></p>
             </div>
             <div class="col-6">
-              <p class="text-right">Le 22/03/19 à 13:49</p>
+              <p class="text-right"><?= $comment["date"] ?></p>
             </div>
           </div>
-          <p class="font-13">Wesh c'est de la grosse merde.</p>
+          <p class="font-13"><?= $comment["content"] ?></p>
           <div class="row">
             <div class="col-12 text-right">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Supprimer le commentaire</button>
             </div>
           </div>
         </div>
-        <div class="col-12 blocsouscat">
-          <div class="row">
-            <div class="col-6">
-              <p class="tittresouscat">Par Inoxz</p>
-            </div>
-            <div class="col-6">
-              <p class="text-right">Le 22/03/19 à 13:49</p>
-            </div>
-          </div>
-          <p class="font-13">Lorem ipsum dolor sit amet, labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          <div class="row">
-            <div class="col-12 text-right">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Supprimer le commentaire</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 blocsouscat">
-          <div class="row">
-            <div class="col-6">
-              <p class="tittresouscat">Par Inoxz</p>
-            </div>
-            <div class="col-6">
-              <p class="text-right">Le 20/03/19 à 13:49</p>
-            </div>
-          </div>
-          <p class="font-13">Lorem ipsum dolor sit amet, labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          <div class="row">
-            <div class="col-12 text-right">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Supprimer le commentaire</button>
-            </div>
-          </div>
+        <?php } ?>
+
 
         </div>
 
