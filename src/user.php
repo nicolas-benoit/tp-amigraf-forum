@@ -84,3 +84,25 @@ function userIsSendable($user)
 
     return $usernameIsSet && $passwordIsSet && $emailIsSet && $roleIsSet && $dateIsSet;
 }
+
+function compareUser($user)
+{
+    dbInit();
+    $toto = dbExecute('SELECT * FROM users WHERE username=:username;', [[":username", $user['username'], PDO::PARAM_STR]])[0];
+    if (!empty($toto)) {
+        if (password_verify($user['password'], $toto['password'])) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
+function pullUserByUsername($username)
+{
+    dbInit();
+    $selectUser = dbExecute('SELECT * FROM users WHERE username=:username;', [[":username", $username, PDO::PARAM_STR]])[0];
+
+    return $selectUser;
+}

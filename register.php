@@ -1,3 +1,30 @@
+<?php
+session_start();
+
+include_once "src/user.php";
+
+if (isset($_POST['register'])) {
+  if (isset($_POST['username']) && !empty($_POST['username'])) {
+    $username = htmlspecialchars($_POST['username']);
+    if (isset($_POST['email']) && !empty($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+      $email = htmlspecialchars($_POST['email']);
+      if (isset($_POST['password']) && !empty($_POST['password'])) {
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+        $toto = createUser($username, $password, $email, "User", date("Y-m-d H:i:s"));
+        pushUser($toto);
+        header("Location: index.php");
+      } else {
+        echo "Le champ est vide ! Entrez un mot de passe !";
+      }
+    } else {
+      echo "Le champ est vide ou mal remplit ! Entrez une adresse mail !";
+    }
+  } else {
+    echo "Votre champ est vide ou mal remplit ! Entrez un nom !";
+  }
+} ?>
+
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 
@@ -68,27 +95,3 @@
 </body>
 
 </html>
-
-<?php
-include "src/user.php";
-
-if (isset($_POST['register'])) {
-  if (isset($_POST['username']) && !empty($_POST['username'])) {
-    $username = htmlspecialchars($_POST['username']);
-    if (isset($_POST['email']) && !empty($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-      $email = htmlspecialchars($_POST['email']);
-      if (isset($_POST['password']) && !empty($_POST['password'])) {
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-        $toto = createUser($username, $email, $password, "User", date("Y-m-d H:i:s"));
-        pushUser($toto);
-      } else {
-        echo "Le champ est vide ! Entrez un mot de passe !";
-      }
-    } else {
-      echo "Le champ est vide ou mal remplit ! Entrez une adresse mail !";
-    }
-  } else {
-    echo "Votre champ est vide ou mal remplit ! Entrez un nom !";
-  }
-}
