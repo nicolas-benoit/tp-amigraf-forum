@@ -7,7 +7,6 @@ if (isset($_POST['connection'])) {
 
     $user = ["username" => $_POST['username'], "password" => $_POST['password']];
 
-
     if (compareUser($user) == true) {
       addUserToSession(pullUserByUsername($user['username'])["id"]);
     } else {

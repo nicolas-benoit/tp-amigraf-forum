@@ -85,6 +85,29 @@ function userIsSendable($user)
     return $usernameIsSet && $passwordIsSet && $emailIsSet && $roleIsSet && $dateIsSet;
 }
 
+function pullUserCount() {
+    dbInit();
+    $sql = "SELECT count(*) AS count FROM users WHERE is_deleted=0;";
+    $count = dbExecute($sql);
+    return intval($count[0]["count"]);
+}
+
+function pullUserStat($user) {
+    dbInit();
+    $sql = "SELECT count(*) AS topic_count FROM topics WHERE user_id=:user_id AND is_deleted=0";
+    $topicCount = dbExecute($sql, [
+        [":user_id", $user["id"], PDO::PARAM_INT]
+    ]);
+    $sql = "SELECT count(*) AS comment_count FROM comments WHERE user_id=:user_id AND is_deleted=0";
+    $commentCount = dbExecute($sql, [
+        [":user_id", $user["id"], PDO::PARAM_INT]
+    ]);
+    return [
+        "topic_count" => $topicCount[0]["topic_count"],
+        "comment_count" => $commentCount[0]["comment_count"]
+    ];
+}
+
 function compareUser($user)
 {
     dbInit();
