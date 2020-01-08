@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include_once "src/category.php";
 include_once "src/subcategory.php";
@@ -8,7 +9,6 @@ $categoryList = pullCategoryList();
 foreach ($categoryList as $key => $category) {
     $categoryList[$key]["subcategories"] = pullSubcategoryList($category);
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
