@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include_once "src/user.php";
 include_once "src/utils.php";
@@ -8,8 +9,7 @@ if (isset($_GET["page"]))
     $page = intval($_GET["page"]);
     if ($page == 0) $page = 1;
 }
-else
-    $page = 1;
+else $page = 1;
 
 $userlist = pullUserList(20, ($page * 20) - 20);
 $userCount = pullUserCount();
@@ -26,7 +26,7 @@ if ($page > $lastpage) redirect("/members.php?page=" . $lastpage);
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <meta charset="utf-8">
-    <title></title>
+    <title>Liste des membres</title>
   </head>
   <body>
       <?php include("includes/header.php") ?>

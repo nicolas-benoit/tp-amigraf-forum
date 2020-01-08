@@ -13,7 +13,10 @@ if (isset($_POST['connection'])) {
       echo "Veuillez réessayer !";
     }
   }
-} ?>
+}
+
+if (!checkIfConnected()) {
+?>
 
 <aside>
   <div class="row" style="margin-bottom:5px;">
@@ -43,3 +46,5 @@ if (isset($_POST['connection'])) {
     <img src="" width="100%" alt="">
   </div>
 </aside>
+
+<?php } ?>

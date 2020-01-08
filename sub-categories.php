@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include_once "src/subcategory.php";
 include_once "src/topic.php";
