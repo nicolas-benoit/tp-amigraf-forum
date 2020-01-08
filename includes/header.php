@@ -1,5 +1,7 @@
 <header>
+
   <div class="row nopadding">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <div class="col-3">
       <div class="logo">
           <div class="mt-10">

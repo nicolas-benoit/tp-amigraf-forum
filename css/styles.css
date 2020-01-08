@@ -86,8 +86,8 @@ input {
   margin-bottom: 15px;
   /* width: 70%;*/
   margin: 10px 0px;
-  border-radius: 5px;
-  box-shadow: 0 1.5px 6px rgba(0,0,0,.4);
+  border-radius: 4px;
+  box-shadow: 0 1.5px 6px rgba(0,0,0,.3);
 }
 
 .inputsubmit2 {
@@ -100,8 +100,8 @@ input {
    width: 30%;
   margin: 10px 0px;
   margin-bottom: 50px;
-  border-radius: 5px;
-  box-shadow: 0 1.5px 6px rgba(0,0,0,.4);
+  border-radius: 4px;
+  box-shadow: 0 1.5px 6px rgba(0,0,0,.3);
 }
 
 .inputsubmit, .inputsubmit2:hover {
@@ -112,7 +112,7 @@ input {
   padding: 12px;
   margin-top: 20px;
   border: 1px solid #106bc9;
-  border-radius: 10px;
+  border-radius: 6px;
 }
 
 .blocategorie {
@@ -199,4 +199,27 @@ p {
 
 .mt-10 {
   margin-top: 10px;
+}
+
+.flexaccueil {
+  display: flex;
+}
+
+@media screen and (max-width: 640px) {
+  .flexaccueil {
+    display: block;
+  }
+  main {
+    width: 100%;
+  }
+  aside {
+    width: 100%;
+    min-height: auto;
+  }
+.blocgauche {
+  display: none;
+}
+h1 {
+  font-size: 16px;
+}
 }
