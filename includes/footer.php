@@ -1,6 +1,6 @@
 <footer class="mt-10 pt-20">
 <div class="row nopadding text-light ">
-  <div class="col-2">
+  <div class="col-1">
 
   </div>
   <div class="col-3">

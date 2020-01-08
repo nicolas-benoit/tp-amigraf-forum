@@ -15,7 +15,8 @@ aside {
 main {
   padding: 15px;
   width: 78%;
-  margin-left: 0.8%;
+  margin: 0 auto;
+
 }
 
 header li {
@@ -88,13 +89,8 @@ input {
   margin-bottom: 15px;
   /* width: 70%;*/
   margin: 10px 0px;
-<<<<<<< HEAD
-  border-radius: 4px;
-  box-shadow: 0 1.5px 6px rgba(0,0,0,.3);
-=======
   border-radius: 5px;
   box-shadow: 0 1.5px 6px rgba(0, 0, 0, .4);
->>>>>>> 2149d0feba076452018d640ee52e6fc3e59fcf2d
 }
 
 .inputsubmit2 {
@@ -108,13 +104,8 @@ input {
   width: 30%;
   margin: 10px 0px;
   margin-bottom: 50px;
-<<<<<<< HEAD
-  border-radius: 4px;
-  box-shadow: 0 1.5px 6px rgba(0,0,0,.3);
-=======
   border-radius: 5px;
   box-shadow: 0 1.5px 6px rgba(0, 0, 0, .4);
->>>>>>> 2149d0feba076452018d640ee52e6fc3e59fcf2d
 }
 
 .inputsubmit,
@@ -126,7 +117,7 @@ input {
   padding: 12px;
   margin-top: 20px;
   border: 1px solid #106bc9;
-  border-radius: 6px;
+  border-radius: 10px;
 }
 
 .blocategorie {
@@ -393,27 +384,4 @@ p {
 
 .mt-10 {
   margin-top: 10px;
-}
-
-.flexaccueil {
-  display: flex;
-}
-
-@media screen and (max-width: 640px) {
-  .flexaccueil {
-    display: block;
-  }
-  main {
-    width: 100%;
-  }
-  aside {
-    width: 100%;
-    min-height: auto;
-  }
-.blocgauche {
-  display: none;
-}
-h1 {
-  font-size: 16px;
-}
 }
