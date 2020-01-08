@@ -41,10 +41,12 @@ olor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
           <div class="col-8 ml-auto pt-20">
                     <form class="" action="index.html" method="post">
 
-
-                    <input type="text" class="inputlogin" name="pseudo" placeholder="Pseudo">
-                    <input type="mail" class="inputlogin" name="mail" placeholder="Votre adresse e-mail">
-                    <input type="password" class="inputlogin" name="password" placeholder="Votre mot de passe">
+                    <label for="pseudo2">Votre pseudo</label>
+                    <input type="text" class="inputlogin" name="pseudo" placeholder="Pseudo" id="pseudo2">
+                    <label for="mail">Votre e-mail</label>
+                    <input type="mail" class="inputlogin" name="mail" placeholder="Votre adresse e-mail" id="mail">
+                    <label for="password">Votre mot de passe</label>
+                    <input type="password" class="inputlogin" name="password" placeholder="Votre mot de passe" id="password">
 
                         </form>
           </div>

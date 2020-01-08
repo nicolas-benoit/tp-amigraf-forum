@@ -30,9 +30,7 @@ if ($page > $lastpage) redirect("/members.php?page=" . $lastpage);
   </head>
   <body>
       <?php include("includes/header.php") ?>
-
     <div class="d-flex">
-
       <?php include("includes/sidebar.php") ?>
     <main>
 

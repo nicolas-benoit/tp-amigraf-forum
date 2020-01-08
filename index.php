@@ -10,7 +10,6 @@ foreach ($categoryList as $key => $category) {
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 
@@ -70,5 +69,4 @@ foreach ($categoryList as $key => $category) {
     <?php include("includes/footer.php") ?>
 
 </body>
-
 </html>

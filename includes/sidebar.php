@@ -8,8 +8,10 @@
     </div>
   </div>
   <form class="" method="post">
-    <input type="text" class="inputlogin" name="pseudo" placeholder="Pseudo ou Mail">
-    <input type="password" class="inputlogin" name="motdepass" placeholder="Mot de passe">
+    <label for="pseudo">Votre pseudo</label>
+    <input type="text" class="inputlogin" name="pseudo" placeholder="Pseudo ou Mail" id="pseudo">
+    <label for="motdepass">Votre mot de passe</label>
+    <input type="password" class="inputlogin" name="motdepass" placeholder="Mot de passe" id="motdepass">
     <div class="row">
       <div class="col-9 text-right">
         <input type="submit" class="inputsubmit" name="connexion" value="Se connecter">

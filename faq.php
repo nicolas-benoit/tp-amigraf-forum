@@ -25,13 +25,30 @@
 
         </div>
         <div class="row align-items-center">
-          <div class="col-8 ml-auto pt-20">
-                <p>
-</p>
-          </div>
           <div class="col-2">
 
           </div>
+          <div class="col-8 pt-20">
+                <div class="row">
+                  <div class="col-12">
+                    <p><strong>Question : Pourquoi ce site existe?</strong></p>
+                    <p class="mb-30">Reponse: J'en sais rien</p>
+                  </div>
+                  <div class="col-12">
+                    <p><strong>Question : Pourquoi ce site existe?</strong></p>
+                    <p class="mb-30">Reponse: J'en sais rien</p>
+                  </div>
+                  <div class="col-12">
+                    <p><strong>Question : Pourquoi ce site existe?</strong></p>
+                    <p class="mb-30">Reponse: J'en sais rien</p>
+                  </div>
+                  <div class="col-12">
+                    <p><strong>Question : Pourquoi ce site existe?</strong></p>
+                    <p class="mb-30">Reponse: J'en sais rien</p>
+                  </div>
+                </div>
+          </div>
+
 
         </div>
 
