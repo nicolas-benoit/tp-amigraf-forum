@@ -4,12 +4,7 @@ body {
 }
 
 header {
-<<<<<<< HEAD
-  background: linear-gradient(to right, #0e68b2 1%, #005cd6 35%, #005cd6 69%, #2a55aa 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-=======
   background: #2f2f2f; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
->>>>>>> 21becf70f249b43814d2186af19a9f4fcd3132b7
 }
 
 aside {
@@ -201,10 +196,6 @@ p {
   padding: 25px;
 }
 
-<<<<<<< HEAD
-
-
-
 /* 404's Page   */
 
 .page404 {
@@ -375,7 +366,7 @@ p {
     padding: 15px;
   }
 }
-=======
+
 .topica:hover {
   text-decoration: none;
   background-color: #F7F7F7;
@@ -393,4 +384,3 @@ p {
 .mt-10 {
   margin-top: 10px;
 }
->>>>>>> 21becf70f249b43814d2186af19a9f4fcd3132b7
