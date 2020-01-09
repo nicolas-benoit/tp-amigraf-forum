@@ -3,6 +3,8 @@ session_start();
 
 include_once "src/user.php";
 
+$errorMessage = "";
+
 if (isset($_POST['register'])) {
   if (isset($_POST['username']) && !empty($_POST['username'])) {
     $username = htmlspecialchars($_POST['username']);
@@ -11,17 +13,21 @@ if (isset($_POST['register'])) {
       if (isset($_POST['password']) && !empty($_POST['password'])) {
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-        $toto = createUser($username, $password, $email, "User", date("Y-m-d H:i:s"));
-        pushUser($toto);
-        header("Location: index.php");
+        if (empty(pullUserByUsername($username)) && empty(pullUserByEmail($email))) {
+            $toto = createUser($username, $password, $email, "User", date("Y-m-d H:i:s"));
+            pushUser($toto);
+            header("Location: index.php");
+        } else {
+            $errorMessage = "Le nom d'utilisateur ou l'adresse email est déja utilisé !";
+        }
       } else {
-        echo "Le champ est vide ! Entrez un mot de passe !";
+        $errorMessage = "Le champ est vide ! Entrez un mot de passe !";
       }
     } else {
-      echo "Le champ est vide ou mal remplit ! Entrez une adresse mail !";
+      $errorMessage = "Le champ est vide ou mal remplit ! Entrez une adresse mail !";
     }
   } else {
-    echo "Votre champ est vide ou mal remplit ! Entrez un nom !";
+    $errorMessage = "Votre champ est vide ou mal remplit ! Entrez un nom !";
   }
 } ?>
 <!DOCTYPE html>
@@ -60,13 +66,14 @@ if (isset($_POST['register'])) {
         <div class="titrecat">
           <div style="padding: 10px;">
             <p>Inscription</p>
-
-
           </div>
 
         </div>
         <div class="row align-items-center">
           <div class="col-8 ml-auto pt-20">
+              <?php if (!empty($errorMessage)) { ?>
+              <p class="alert alert-danger"><?= $errorMessage ?></p>
+              <?php } ?>
             <form class="" action="register.php" method="post">
 
                     <label for="pseudo2">Votre pseudo</label>

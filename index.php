@@ -30,11 +30,7 @@ foreach ($categoryList as $key => $category) {
       <?php include("includes/sidebar.php") ?>
     <main>
     <div class="d-flex">
-
-          <div class="col-8 col-sm-5">
-              <p style="padding: 10px;">Titre de la categorie</p>
-
-          </div>
+<!--
           <div class="col-2 text-right">
             <a href="ajout-categorie.php">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -46,7 +42,9 @@ foreach ($categoryList as $key => $category) {
   Supprimer la categorie
 </button>
           </div>
-            </div>
+      -->
+</div>
+
 
             <?php foreach ($categoryList as $category) { ?>
             <div class="blocategorie">

@@ -15,7 +15,7 @@ $userlist = pullUserList(20, ($page * 20) - 20);
 $userCount = pullUserCount();
 $lastpage = ceil($userCount / 20);
 
-if ($page > $lastpage) redirect("/members.php?page=" . $lastpage);
+if ($page > $lastpage) redirect("members.php?page=" . $lastpage);
 
 session_start();
 
