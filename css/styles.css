@@ -21,7 +21,7 @@ main {
 
 header li {
   list-style-type: none;
-  width: 10%;
+  margin-right: 25px;
 }
 
 header li a {

@@ -15,7 +15,7 @@ $commentList = pullCommentList($_GET["id"]);
 
 if (empty($topic))
     redirect("404.php");
-    
+
 session_start();
 ?>
 
@@ -61,12 +61,14 @@ session_start();
 
           <div class="row p-25">
 
-              <div class="">
+              <div class="col-12">
              <p class="tittresouscat">Par <a href="profilepage.php?id=<?= $topicUser["id"] ?>"><?= $topicUser["username"] ?></a></p>
             <p><?= $topic["date"] ?></p>
 
         </div>
-        <p><?= $topic["content"] ?></p>
+        <div class="col-12">
+            <p><?= $topic["content"] ?></p>
+        </div>
       </div>
     </div>
     <div class="blocategorie">
