@@ -32,22 +32,32 @@ session_start();
       <?php include("includes/sidebar.php") ?>
     <main>
 
-      <div class="blocategorie">
-        <div class="titrecat">
-          <div style="padding: 10px;">
-              <p>Les informations sur <?= $user["username"] ?></p>
-
-
-          </div>
-
-        </div>
-        <div class="row align-items-center">
-          <div class="col-2 ml-5">
+    <div class="row profilePage">
+        <section class="col-12 col-md-8 contentProfile_Block">
+            <div class="usernameBlock">
+                <div class="usernameBlock">
+                    <h2 class="username">Tout à propos de <?= $user["username"]?></h2>
+                </div>
+            </div>
+            <div class="contentBlock">
+                <ul>
+                    <li class="listContent my-3">Email : <?= $user["email"] ?></li>
+                    <li class="listContent my-3">Rôle : <?= $user["role"] ?></li>
+                    <li class="listContent my-3">Date d'inscription : <?= $user["date"] ?></li>
+                    <li class="listContent my-3">Date de naissance :</li>
+                    <li class="listContent my-3">Nombre de topics : <?= $stat["topic_count"] ?></li>
+                    <li class="listContent my-3">Nombre de commentaires : <?= $stat["comment_count"] ?></li>
+            </div>
+        </section>
+        <section class="col-12 col-md-3 imgProfile_Block">
+            <div class="usernameBlock">
+                <h2 class="username"><?= $user["username"]?></h2>
+            </div>
             <div class="imgBlock">
                 <img src="img/kirby.png" alt="image profile">
             </div>
           </div>
-          <div class="col-8 ml-5 pt-20">
+          <!-- <div class="col-8 ml-5 pt-20">
 
 
                   <p class="font-16"><b>Email :</b> <?= $user["email"] ?></p>
@@ -64,7 +74,7 @@ session_start();
 
                             </ol>
 
-    </div>
+    </div> -->
 
 </body>
 

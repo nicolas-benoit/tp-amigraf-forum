@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include_once "src/subcategory.php";
 include_once "src/topic.php";
@@ -12,8 +13,7 @@ $topicList = pullTopicList($subcategory);
 
 if (empty($subcategory))
     redirect("404.php");
-    
-session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -60,18 +60,19 @@ session_start();
           <div class="row nopadding">
 
         <?php foreach ($topicList as $topic) { ?>
-          <a class="topica" href="topic.php?id=<?= $topic["id"] ?>">
-          <div class="col-12 blocsouscat">
-            <div class="row">
-              <div class="col-9">
-                    <p class="tittresouscat"><?= $topic["name"] ?></p>
-              </div>
-              <div class="col-3">
-                  Date : <?= $topic["date"] ?>
-              </div>
+            <div class="col-12">
+                <a class="topica" href="topic.php?id=<?= $topic["id"] ?>">
+                <div class="blocsouscat">
+                  <div class="row">
+                    <div class="col-9">
+                          <p class="tittresouscat"><?= $topic["name"] ?></p>
+                    </div>
+                    <div class="col-3">
+                        Date : <?= $topic["date"] ?>
+                    </div>
+                  </div>
+                </div>
             </div>
-            <p class="font-13">Lorem ipsum dolor sit amet, labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          </div>
           <?php } ?>
         </a>
       </div>

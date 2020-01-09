@@ -122,10 +122,19 @@ function compareUser($user)
         return false;
     }
 }
+
 function pullUserByUsername($username)
 {
     dbInit();
     $selectUser = dbExecute('SELECT * FROM users WHERE username=:username;', [[":username", $username, PDO::PARAM_STR]])[0];
+
+    return $selectUser;
+}
+
+function pullUserByEmail($email)
+{
+    dbInit();
+    $selectUser = dbExecute('SELECT * FROM users WHERE email=:email;', [[":email", $email, PDO::PARAM_STR]])[0];
 
     return $selectUser;
 }
