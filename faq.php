@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
@@ -31,20 +32,17 @@
           <div class="col-8 pt-20">
                 <div class="row">
                   <div class="col-12">
-                    <p><strong>Question : Pourquoi ce site existe?</strong></p>
-                    <p class="mb-30">Reponse: J'en sais rien</p>
+                    <p><strong>Question : Par qui à était créer ce forum?</strong></p>
+                    <p class="mb-30">Reponse : Par la team secrète des avengers d'amigraf.. impossible de retrouver ces héros..</p>
+                  </div>
+                  <div class="col-12">
+                    <p><strong>Question : Quand à était créer ce site ? </strong></p>
+                    <p class="mb-30">Reponse : En février 2020</p>
                   </div>
                   <div class="col-12">
                     <p><strong>Question : Pourquoi ce site existe?</strong></p>
-                    <p class="mb-30">Reponse: J'en sais rien</p>
-                  </div>
-                  <div class="col-12">
-                    <p><strong>Question : Pourquoi ce site existe?</strong></p>
-                    <p class="mb-30">Reponse: J'en sais rien</p>
-                  </div>
-                  <div class="col-12">
-                    <p><strong>Question : Pourquoi ce site existe?</strong></p>
-                    <p class="mb-30">Reponse: J'en sais rien</p>
+                    <p class="mb-30">Reponse : J'en sais rien</p>
+
                   </div>
                 </div>
           </div>
