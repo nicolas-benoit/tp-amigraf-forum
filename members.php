@@ -2,6 +2,7 @@
 
 include_once "src/user.php";
 include_once "src/utils.php";
+include_once "src/database.php";
 
 if (isset($_GET["page"]))
 {
