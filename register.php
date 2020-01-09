@@ -63,11 +63,11 @@ if (isset($_POST['register'])) {
             <form class="" action="register.php" method="post">
 
                     <label for="pseudo2">Votre pseudo</label>
-                    <input type="text" class="inputlogin" name="username" placeholder="Pseudo">
+                    <input type="text" class="inputlogin" name="username" placeholder="Pseudo" required>
                     <label for="mail">Votre e-mail</label>
-                    <input type="email" class="inputlogin" name="email" placeholder="Votre adresse e-mail">
+                    <input type="email" class="inputlogin" name="email" placeholder="Votre adresse e-mail" required>
                     <label for="password">Votre mot de passe</label>
-                    <input type="password" class="inputlogin" name="password" placeholder="Votre mot de passe">
+                    <input type="password" class="inputlogin" name="password" placeholder="Votre mot de passe" required>
 
           </div>
           <div class="col-2">

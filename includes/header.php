@@ -34,7 +34,7 @@ if (checkIfConnected()) {
           <div class="row mt-1 float-right mr-1">
             <?php if (isset($_SESSION['connectedUser'])): ?>
               <a href="profilepage.php?id=<?= $_SESSION['connectedUser'] ?>"><button class="btn-success p-2 m-1" style="border: 0">Hey ! <?= $connectedUser["username"] ?></button></a>
-              <a href="logout.php"><button class="btn-danger p-2 m-1" style="border: 0">Se déconnecter</button></a>
+              <a href="logout.php?return=<?= $_SERVER["REQUEST_URI"] ?>"><button class="btn-danger p-2 m-1" style="border: 0">Se déconnecter</button></a>
             <?php endif; ?>
 
           </div>

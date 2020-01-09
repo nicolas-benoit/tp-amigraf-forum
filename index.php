@@ -29,8 +29,6 @@ foreach ($categoryList as $key => $category) {
 
       <?php include("includes/sidebar.php") ?>
     <main>
-    <div class="d-flex">
-</div>
 
 
             <?php foreach ($categoryList as $category) { ?>

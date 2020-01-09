@@ -38,7 +38,11 @@ $stat = pullUserStat($user);
         <section class="col-12 col-md-8 contentProfile_Block">
             <div class="usernameBlock">
                 <div class="usernameBlock">
-                    <h2 class="username">Tout à propos de <?= $user["username"]?></h2>
+                    <?php if($user["id"] == $connectedUser["id"]) { ?>
+                        <h2 class="username">Vos informations</h2>
+                    <?php } else { ?>
+                        <h2 class="username">Tout à propos de <?= $user["username"]?></h2>
+                    <?php } ?>
                 </div>
             </div>
             <div class="contentBlock">
@@ -53,7 +57,11 @@ $stat = pullUserStat($user);
         </section>
         <section class="col-12 col-md-3 imgProfile_Block">
             <div class="usernameBlock">
+                <?php if($user["id"] == $connectedUser["id"]) { ?>
+                <h2 class="username">Votre avatar</h2>
+                <?php } else { ?>
                 <h2 class="username"><?= $user["username"]?></h2>
+                <?php } ?>
             </div>
             <div class="imgBlock">
                 <img src="img/kirby.png" alt="image profile">
