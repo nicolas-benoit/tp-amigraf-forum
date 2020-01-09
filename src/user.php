@@ -54,7 +54,7 @@ function updateUser($user)
 function pullUserList($amount = 20, $offset = 0)
 {
     dbinit();
-    $sql = "SELECT * FROM users WHERE is_deleted=0 ORDER BY date LIMIT :amount OFFSET :offset;";
+    $sql = "SELECT * FROM users WHERE is_deleted=0 ORDER BY date DESC LIMIT :amount OFFSET :offset;";
 
     $userList = dbExecute($sql, [
         [":amount", $amount, PDO::PARAM_INT],

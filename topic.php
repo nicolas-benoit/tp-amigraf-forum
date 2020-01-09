@@ -16,7 +16,6 @@ $commentList = pullCommentList($_GET["id"]);
 if (empty($topic))
     redirect("404.php");
 
-session_start();
 ?>
 
 <!DOCTYPE html>
@@ -144,7 +143,6 @@ session_start();
     </div>
     </main>
         </div>
-        <?php include("includes/footer.php") ?>
 
   </body>
 </html>

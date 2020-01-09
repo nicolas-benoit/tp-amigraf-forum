@@ -19,7 +19,7 @@ foreach ($categoryList as $key => $category) {
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <meta charset="utf-8">
-    <title></title>
+    <title>Les avengers</title>
 </head>
 
 <body>
@@ -58,7 +58,6 @@ foreach ($categoryList as $key => $category) {
             <?php } ?>
         </main>
     </div>
-    <?php include("includes/footer.php") ?>
 
 </body>
 </html>

@@ -1,6 +1,8 @@
 <?php
+session_start();
 
 include_once "src/user.php";
+include_once "src/session.php";
 include_once "src/utils.php";
 
 if (!isset($_GET["id"]) || intval($_GET["id"]) <= 0)
@@ -13,7 +15,6 @@ if (empty($user))
 
 $stat = pullUserStat($user);
 
-session_start(); 
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -22,12 +23,16 @@ session_start();
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <meta charset="utf-8">
-    <title>Page de Profil</title>
+    <title>Page de <?= $user["username"] ?></title>
 </head>
 
 <body>
 
     <?php include("includes/header.php") ?>
+
+    <div class="d-flex">
+      <?php include("includes/sidebar.php") ?>
+    <main>
 
     <div class="row profilePage">
         <section class="col-12 col-md-8 contentProfile_Block">
@@ -55,7 +60,8 @@ session_start();
             </div>
         </section>
     </div>
-
+    </main>
+</div>
 </body>
 
 </html>
