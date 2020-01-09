@@ -13,7 +13,8 @@ $commentList = pullCommentList($_GET["id"]);
 
 if (empty($topic))
     redirect("404.php");
-
+    
+session_start();
 ?>
 
 <!DOCTYPE html>

@@ -12,7 +12,8 @@ $topicList = pullTopicList($subcategory);
 
 if (empty($subcategory))
     redirect("404.php");
-
+    
+session_start();
 ?>
 
 <!DOCTYPE html>

@@ -2,7 +2,8 @@
 
 include_once "database.php";
 
-function createUser($username, $password, $email, $role, $date, $is_deleted = 0) {
+function createUser($username, $password, $email, $role, $date, $is_deleted = 0)
+{
     return [
         "id" => -1,
         "username" => $username,
@@ -14,7 +15,8 @@ function createUser($username, $password, $email, $role, $date, $is_deleted = 0)
     ];
 }
 
-function pushUser($user) {
+function pushUser($user)
+{
     dbInit();
     $sql = "INSERT INTO users(username,password,email,role,date) VALUES (:username,:password,:email,:role,:date)";
 
@@ -27,13 +29,15 @@ function pushUser($user) {
     ]);
 }
 
-function pullUser($id) {
+function pullUser($id)
+{
     dbInit();
     $user = dbExecute("SELECT * FROM users WHERE id=:id;", [[":id", $id, PDO::PARAM_INT]]);
     return $user[0];
 }
 
-function updateUser($user) {
+function updateUser($user)
+{
     dbinit();
     $sql = "UPDATE users SET username=:username, password=:password, email=:email, role=:role, date=:date WHERE id=:id;";
 
@@ -47,7 +51,8 @@ function updateUser($user) {
     ]);
 }
 
-function pullUserList($amount = 20, $offset = 0) {
+function pullUserList($amount = 20, $offset = 0)
+{
     dbinit();
     $sql = "SELECT * FROM users WHERE is_deleted=0 ORDER BY date LIMIT :amount OFFSET :offset;";
 
@@ -59,7 +64,8 @@ function pullUserList($amount = 20, $offset = 0) {
     return $userList;
 }
 
-function forgetUser($user) {
+function forgetUser($user)
+{
     dbInit();
     $sql = "UPDATE users SET is_deleted=1 WHERE id=:id";
     dbExecute($sql, [
@@ -67,7 +73,8 @@ function forgetUser($user) {
     ]);
 }
 
-function userIsSendable($user) {
+function userIsSendable($user)
+{
     $usernameIsSet = isset($user["username"]) && !empty($user["username"]);
     $passwordIsSet = isset($user["password"]) && !empty($user["password"]);
     $emailIsSet = isset($user["email"]) && !empty($user["email"]);
@@ -87,19 +94,38 @@ function pullUserCount() {
 
 function pullUserStat($user) {
     dbInit();
-
     $sql = "SELECT count(*) AS topic_count FROM topics WHERE user_id=:user_id AND is_deleted=0";
     $topicCount = dbExecute($sql, [
         [":user_id", $user["id"], PDO::PARAM_INT]
     ]);
-
     $sql = "SELECT count(*) AS comment_count FROM comments WHERE user_id=:user_id AND is_deleted=0";
     $commentCount = dbExecute($sql, [
         [":user_id", $user["id"], PDO::PARAM_INT]
     ]);
-
     return [
         "topic_count" => $topicCount[0]["topic_count"],
         "comment_count" => $commentCount[0]["comment_count"]
     ];
+}
+
+function compareUser($user)
+{
+    dbInit();
+    $toto = dbExecute('SELECT * FROM users WHERE username=:username;', [[":username", $user['username'], PDO::PARAM_STR]])[0];
+    if (!empty($toto)) {
+        if (password_verify($user['password'], $toto['password'])) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
+function pullUserByUsername($username)
+{
+    dbInit();
+    $selectUser = dbExecute('SELECT * FROM users WHERE username=:username;', [[":username", $username, PDO::PARAM_STR]])[0];
+
+    return $selectUser;
 }

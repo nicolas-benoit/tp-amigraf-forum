@@ -33,7 +33,7 @@ if (checkIfConnected()) {
         <nav>
           <div class="row mt-1 float-right mr-1">
             <?php if (isset($_SESSION['connectedUser'])): ?>
-              <a href="profilpage.php?id=<?= $_SESSION['connectedUser'] ?>"><button class="btn-success p-2 m-1" style="border: 0">Hey ! <?= $user["username"] ?></button></a>
+              <a href="profilepage.php?id=<?= $_SESSION['connectedUser'] ?>"><button class="btn-success p-2 m-1" style="border: 0">Hey ! <?= $user["username"] ?></button></a>
               <a href="logout.php"><button class="btn-danger p-2 m-1" style="border: 0">Se déconnecter</button></a>
             <?php endif; ?>
 
