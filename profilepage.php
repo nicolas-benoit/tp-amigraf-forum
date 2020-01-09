@@ -12,6 +12,8 @@ if (empty($user))
     redirect("404.php");
 
 $stat = pullUserStat($user);
+
+session_start(); 
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">

@@ -24,7 +24,6 @@ if (isset($_POST['register'])) {
     echo "Votre champ est vide ou mal remplit ! Entrez un nom !";
   }
 } ?>
-
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 

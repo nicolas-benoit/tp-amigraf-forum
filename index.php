@@ -9,6 +9,7 @@ $categoryList = pullCategoryList();
 foreach ($categoryList as $key => $category) {
     $categoryList[$key]["subcategories"] = pullSubcategoryList($category);
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -22,8 +23,12 @@ foreach ($categoryList as $key => $category) {
 </head>
 
 <body>
-    <?php include("includes/header.php") ?>
+      <?php include("includes/header.php") ?>
 
+    <div class="d-flex">
+
+      <?php include("includes/sidebar.php") ?>
+    <main>
     <div class="d-flex">
 
           <div class="col-8 col-sm-5">
