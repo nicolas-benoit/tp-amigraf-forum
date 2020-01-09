@@ -45,10 +45,7 @@ if (empty($subcategory))
               </button>
             </div>
             <div class="col-2 text-right">
-              <a href="ajout-article.php">
-                <button type="button" class="btn btn-secondary">
-                  Ajouter un article
-                </button></a>
+              <a class="btn btn-secondary" href="ajout-article.php?id=<?= $subcategory['id'] ?>">Ajouter un article</a>
             </div>
             <div class="col-2 text-right">
 

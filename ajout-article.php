@@ -1,4 +1,25 @@
-<?php session_start(); ?>
+<?php session_start();
+
+include_once "src/user.php";
+include_once "src/subcategory.php";
+include_once "src/topic.php";
+include_once "src/session.php";
+
+if (isset($_POST['subject']) && !empty($_POST['subject'])) {
+  $subject = htmlspecialchars($_POST['subject']);
+  if (isset($_POST['content']) && !empty($_POST['content'])) {
+    $content = htmlspecialchars($_POST['content']);
+
+    $createTopic = createTopic($subject, $content, date("Y-m-d H:i:s"));
+
+    $createTopic = linkSubcategoryToTopic($createTopic, pullSubcategory($_GET['id']));
+    $createTopic = linkUserToTopic($createTopic, getConnectedUser());
+    pushTopic($createTopic);
+  }
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 
@@ -27,10 +48,10 @@
 
         <div class="row p-25">
           <div class="col-12">
-            <form class="addTopic" action="ajout-article.php" method="post">
+            <form class="addTopic" action="ajout-article.php?id=<?= $_GET['id'] ?>" method="post">
               <div class="col-12 col-md-6 my-3">
                 <label for="topic">Nom du Sujet :</label>
-                <input type="text" class="form-control" name="topic" placeholder="Nom du Topic">
+                <input type="text" class="form-control" name="subject" placeholder="Nom du Topic">
               </div>
               <div class="col-12 col-md-6 my-3">
                 <label for="content">Le contenu du Sujet :</label>
