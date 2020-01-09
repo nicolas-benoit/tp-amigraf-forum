@@ -17,16 +17,7 @@ if (empty($topic))
   redirect("404.php");
 
 
-
-if (isset($_POST['delete'])) {
-  if (isset($_POST['id'])) {
-    $topicId = $_POST['id'];
-
-    forgetTopic($topicId);
-    header("Location: index.php");
-  }
-}
-
+// Add New comment 
 if (isset($_POST['submit'])) {
   if (isset($_POST['content']) && !empty($_POST['content'])) {
     $content = htmlspecialchars($_POST['content']);
@@ -73,8 +64,7 @@ if (isset($_POST['submit'])) {
               </button>
             </div>
             <div class="col-2 text-right">
-              <form action="topic.php" method="post">
-                <input type="hidden" name="id" value="<?= $topic['id'] ?>" />
+              <form action="topic.php?id=<?= $topic['id'] ?>" method="post">
                 <input type="submit" name="delete" class="btn btn-danger" value="Supprimer l'article" />
               </form>
             </div>
@@ -122,6 +112,7 @@ if (isset($_POST['submit'])) {
           <?php
           foreach ($commentList as $comment) {
             $user = pullUser($comment["user_id"]);
+
           ?>
             <div class="col-12 blocsouscat">
               <div class="row">
@@ -134,17 +125,18 @@ if (isset($_POST['submit'])) {
               </div>
               <p class="font-13"><?= $comment["content"] ?></p>
               <div class="row">
-                <div class="col-12 text-right">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Supprimer le commentaire</button>
+                <div class="col-6 text-right">
+                  <a href="deleteComment.php?commentId=<?= $comment['id'] ?>&topicId=<?= $topic['id'] ?>" class="btn btn-danger" name="deleteComment">Supprimer</a>
                 </div>
               </div>
             </div>
-          <?php } ?>
-
-
         </div>
+      <?php } ?>
+
 
       </div>
+
+  </div>
 
   </div>
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
