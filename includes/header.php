@@ -8,7 +8,7 @@ if (checkIfConnected()) {
 <header>
   <div class="row nopadding">
     <div class="col-3">
-      <div class="logo">
+      <div class="logo pl-3">
           <div class="mt-10">
         <a href="index.php"><img width="40%" src="img/logo-avengers.png" alt=""></a>
           </div>

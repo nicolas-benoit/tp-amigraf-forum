@@ -19,7 +19,7 @@ foreach ($categoryList as $key => $category) {
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <meta charset="utf-8">
-    <title></title>
+    <title>Bienvenue sur le forum des Avengers</title>
 </head>
 
 <body>

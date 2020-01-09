@@ -4,11 +4,10 @@ session_start();
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
-
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <meta charset="utf-8">
-    <title></title>
+    <title>Les avengers c'est quoi?</title>
   </head>
   <body>
       <?php include("includes/header.php") ?>
