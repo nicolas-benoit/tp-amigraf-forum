@@ -2,7 +2,8 @@
 
 include_once "database.php";
 
-function createComment($content, $date, $is_deleted = 0) {
+function createComment($content, $date, $is_deleted = 0)
+{
     return [
         "id" => -1,
         "content" => $content,
@@ -14,7 +15,8 @@ function createComment($content, $date, $is_deleted = 0) {
     ];
 }
 
-function pushComment($comment) {
+function pushComment($comment)
+{
     dbInit();
     $sql = "INSERT INTO comments(content,date,topic_id,user_id) VALUES (:content,:date,:topic_id,:user_id)";
 
@@ -26,15 +28,17 @@ function pushComment($comment) {
     ]);
 }
 
-function pullComment($id) {
+function pullComment($id)
+{
     dbInit();
     $comment = dbExecute("SELECT * FROM comments WHERE id=:id;", [[":id", $id, PDO::PARAM_INT]]);
     return $comment[0];
 }
 
-function pullCommentList($topic_id, $amount = 20, $offset = 0) {
+function pullCommentList($topic_id, $amount = 20, $offset = 0)
+{
     dbinit();
-    $sql = "SELECT * FROM comments WHERE topic_id=:topic_id AND is_deleted=0 ORDER BY date LIMIT :amount OFFSET :offset;";
+    $sql = "SELECT * FROM comments WHERE topic_id=:topic_id AND is_deleted=0 ORDER BY date desc LIMIT :amount OFFSET :offset;";
 
     $commentList = dbExecute($sql, [
         [":topic_id", $topic_id, PDO::PARAM_INT],
@@ -45,7 +49,8 @@ function pullCommentList($topic_id, $amount = 20, $offset = 0) {
     return $commentList;
 }
 
-function updateComment($comment) {
+function updateComment($comment)
+{
     dbinit();
     $sql = "UPDATE comments SET content = :content, date = :date,topic_id = :topic_id,user_id = :user_id WHERE id=:id;";
 
@@ -58,7 +63,8 @@ function updateComment($comment) {
     ]);
 }
 
-function forgetComment($comment) {
+function forgetComment($comment)
+{
     dbInit();
     $sql = "UPDATE comments SET is_deleted=1 WHERE id=:id";
     dbExecute($sql, [
@@ -66,17 +72,20 @@ function forgetComment($comment) {
     ]);
 }
 
-function linkTopicToComment($comment, $topic) {
+function linkTopicToComment($comment, $topic)
+{
     $comment["topic_id"] = $topic["id"];
     return $comment;
 }
 
-function linkUserToComment($comment, $user) {
+function linkUserToComment($comment, $user)
+{
     $comment["user_id"] = $user["id"];
     return $comment;
 }
 
-function commentIsSendable($comment) {
+function commentIsSendable($comment)
+{
     $contentIsSet = isset($comment["content"]) && !empty($comment["content"]);
     $dateIsSet = isset($comment["date"]) && !empty($comment["date"]);
     $topicIdIsSet = isset($comment["topic_id"]) && !empty($comment["topic_id"]);
