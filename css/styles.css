@@ -305,11 +305,11 @@ p {
 }
 
 .username {
-  text-align: left;
+  text-align: center;
   line-height: 75px;
   color: white;
-  padding-left: 25px;
-  font: 42px "Roboto", sans-serif;
+  font: 32px "Roboto", sans-serif;
+  width: 100%;
 }
 
 .imgBlock {
@@ -332,14 +332,14 @@ p {
 
 @media (min-width: 1204px) {
   .imgBlock img {
-    width: 300px;
+    width: 100%;
     padding: 15px;
   }
 }
 
 @media (min-width: 863px) and (max-width: 1150px) {
   .username {
-    font: 32px "Roboto", sans-serif;
+    font: 26px "Roboto", sans-serif;
     padding: 15px;
   }
 }
@@ -364,6 +364,25 @@ p {
     padding: 15px;
   }
 }
+
+@media (max-width: 424px) {
+  .imgProfile_Block {
+    height: auto;
+  }
+
+  .imgBlock img {
+    width: 100%;
+  }
+
+  .listContent {
+    font: 15px "Roboto", sans-serif;
+  }
+
+  .contentBlock ul {
+    padding: 0;
+  }
+}
+
 
 .topica:hover {
   text-decoration: none;
@@ -402,7 +421,7 @@ p {
 .button_topic {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .addTopic,
@@ -432,7 +451,8 @@ p {
     height: auto;
   }
 
-  .blockButton {
+  .blockButton,
+  .button_topic {
     justify-content: center;
     margin-top: 5px;
   }
@@ -446,4 +466,22 @@ p {
   .blocsouscat {
     padding: 15px;
   }
+}
+
+/* Pagination */
+
+.paginationBlock {
+  padding-bottom: 15px;
+}
+
+/* header */
+
+.imgLogo {
+  width: 200px;
+  margin-right: 25px;
+}
+
+.blockLogin {
+  display: flex;
+  justify-content: center;
 }

@@ -14,11 +14,11 @@ if (isset($_POST['register'])) {
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
         if (empty(pullUserByUsername($username)) && empty(pullUserByEmail($email))) {
-            $toto = createUser($username, $password, $email, "User", date("Y-m-d H:i:s"));
-            pushUser($toto);
-            header("Location: index.php");
+          $toto = createUser($username, $password, $email, "User", date("Y-m-d H:i:s"));
+          pushUser($toto);
+          header("Location: index.php");
         } else {
-            $errorMessage = "Le nom d'utilisateur ou l'adresse email est déja utilisé !";
+          $errorMessage = "Le nom d'utilisateur ou l'adresse email est déja utilisé !";
         }
       } else {
         $errorMessage = "Le champ est vide ! Entrez un mot de passe !";
@@ -35,7 +35,7 @@ if (isset($_POST['register'])) {
 
 <head>
 
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="css/styles.css">
   <meta charset="utf-8">
   <title>S'inscrire</title>
@@ -57,17 +57,17 @@ if (isset($_POST['register'])) {
         </div>
         <div class="row align-items-center">
           <div class="col-8 ml-auto pt-20">
-              <?php if (!empty($errorMessage)) { ?>
+            <?php if (!empty($errorMessage)) { ?>
               <p class="alert alert-danger"><?= $errorMessage ?></p>
-              <?php } ?>
+            <?php } ?>
             <form class="" action="register.php" method="post">
 
-                    <label for="pseudo2">Votre pseudo</label>
-                    <input type="text" class="inputlogin" name="username" placeholder="Pseudo" required>
-                    <label for="mail">Votre e-mail</label>
-                    <input type="email" class="inputlogin" name="email" placeholder="Votre adresse e-mail" required>
-                    <label for="password">Votre mot de passe</label>
-                    <input type="password" class="inputlogin" name="password" placeholder="Votre mot de passe" required>
+              <label for="pseudo2">Votre pseudo</label>
+              <input type="text" class="inputlogin" name="username" placeholder="Pseudo" required>
+              <label for="mail">Votre e-mail</label>
+              <input type="email" class="inputlogin" name="email" placeholder="Votre adresse e-mail" required>
+              <label for="password">Votre mot de passe</label>
+              <input type="password" class="inputlogin" name="password" placeholder="Votre mot de passe" required>
 
           </div>
           <div class="col-2">
@@ -85,6 +85,11 @@ if (isset($_POST['register'])) {
       </div>
     </main>
   </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
+
 
 </html>
