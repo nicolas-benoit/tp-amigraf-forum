@@ -32,7 +32,7 @@ function pullSubcategory($id) {
 
 function pullSubcategoryList($category) {
     dbInit();
-    $subcategoryList = dbExecute("SELECT * FROM subcategories WHERE is_deleted=0 AND category_id=:category_id ORDER BY date ASC;", [
+    $subcategoryList = dbExecute("SELECT * FROM subcategories WHERE is_deleted=0 AND category_id=:category_id ORDER BY date DESC;", [
         ["category_id", $category["id"], PDO::PARAM_INT]
     ]);
     return $subcategoryList;

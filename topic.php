@@ -5,6 +5,7 @@ include_once "src/topic.php";
 include_once "src/comment.php";
 include_once "src/user.php";
 include_once "src/utils.php";
+include_once "src/session.php";
 
 if (!isset($_GET["id"]) || intval($_GET["id"]) <= 0)
   redirect("404.php");
@@ -16,13 +17,13 @@ $commentList = pullCommentList($_GET["id"]);
 if (empty($topic))
   redirect("404.php");
 
-// Add New comment 
+// Add New comment
 if (isset($_POST['submit'])) {
   if (isset($_POST['content']) && !empty($_POST['content'])) {
     $content = htmlspecialchars($_POST['content']);
     $createComment = createComment($content, date("Y-m-d H:i:s"));
 
-    $createComment = linkUserToComment($createComment, $topicUser);
+    $createComment = linkUserToComment($createComment, getConnectedUser());
     $createComment = linkTopicToComment($createComment, $topic);
     pushComment($createComment);
     header("Location: topic.php?id=" . $topic['id']);
@@ -55,14 +56,16 @@ if (isset($_POST['submit'])) {
               <p><?= $topic["name"] ?></p>
             </div>
 
+            <?php if (isset($connectedUser) && ($connectedUser["id"] == $topic["user_id"] || $connectedUser["role"] == "Admin" || $connectedUser["role"] == "Moderator")) { ?>
             <div class="col-12 col-md-6 row blockButton">
               <div class="button_topic mx-3">
                 <a type="button" class="btn btn-warning text-dark" data-toggle="modal" data-target="#exampleModal"> Editer </a>
               </div>
               <div class="button_topic mx-3">
-                <a href=" deleteTopic.php?topicId=<?= $topic['id'] ?>&subcategoriesId=<?= $topicUser['id'] ?>" class="btn btn-danger">Supprimer</a>
+                <a href=" deleteTopic.php?topicId=<?= $topic['id'] ?>&subcategoriesId=<?= $topic['subcategory_id'] ?>" class="btn btn-danger">Supprimer</a>
               </div>
             </div>
+            <?php } ?>
 
           </div>
 
@@ -93,6 +96,7 @@ if (isset($_POST['submit'])) {
 
             <div class="col-12 blocsouscat">
               <div class="col-12 row m-0 p-0">
+                <?php if (isset($connectedUser)) { ?>
                 <form action="topic.php?id=<?= $topic['id'] ?>" method="post">
                   <div class="form-group">
                     <label for="content">Ecrire un commentaire</label>
@@ -101,7 +105,12 @@ if (isset($_POST['submit'])) {
                   <div class="form-group">
                     <input type="submit" class="btn btn-primary mt-3" name="submit" value="Envoyer le commentaire">
                   </div>
-                </form>
+              </form>
+          <?php } else { ?>
+              <div class="alert alert-info">
+                  <p>Vous devez être connecter pour pouvoir ajouté un commentaire.</p>
+              </div>
+          <?php } ?>
 
               </div>
 
@@ -121,11 +130,13 @@ if (isset($_POST['submit'])) {
                   </div>
                 </div>
                 <p class="font-13"><?= $comment["content"] ?></p>
+                <?php if (isset($connectedUser) && ($connectedUser["id"] == $comment["user_id"] || $connectedUser["role"] == "Admin" || $connectedUser["role"] == "Moderator")) { ?>
                 <div class="row">
                   <div class="col-6 text-right">
                     <a href="deleteComment.php?commentId=<?= $comment['id'] ?>&topicId=<?= $topic['id'] ?>" class="btn btn-danger" name="deleteComment">Supprimer</a>
                   </div>
                 </div>
+                <?php } ?>
               </div>
           </div>
         <?php } ?>
@@ -154,16 +165,8 @@ if (isset($_POST['submit'])) {
         </div>
       </div>
     </div>
-<<<<<<< HEAD
+</div>
     </main>
         </div>
-=======
-  </div>
-  </main>
-  </div>
-  <?php include("includes/footer.php") ?>
-
-</body>
->>>>>>> 2afab27a612352cb1a484873d3e4b41428faf147
 
 </html>

@@ -36,7 +36,7 @@ function pullTopic($id) {
 
 function pullTopicList($subcategory) {
     dbinit();
-    $sql = "SELECT * FROM topics WHERE is_deleted=0 AND subcategory_id=:subcategory_id ORDER BY date;";
+    $sql = "SELECT * FROM topics WHERE is_deleted=0 AND subcategory_id=:subcategory_id ORDER BY date DESC;";
 
     $topicList = dbExecute($sql, [
         [":subcategory_id", $subcategory["id"], PDO::PARAM_INT],
