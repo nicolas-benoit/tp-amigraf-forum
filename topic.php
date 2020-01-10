@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
 <html lang="fr" dir="ltr">
 
 <head>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="css/styles.css">
   <meta charset="utf-8">
   <title><?= $topic["name"] ?></title>
@@ -57,14 +57,14 @@ if (isset($_POST['submit'])) {
             </div>
 
             <?php if (isset($connectedUser) && ($connectedUser["id"] == $topic["user_id"] || $connectedUser["role"] == "Admin" || $connectedUser["role"] == "Moderator")) { ?>
-            <div class="col-12 col-md-6 row blockButton">
-              <div class="button_topic mx-3">
-                <a type="button" class="btn btn-warning text-dark" data-toggle="modal" data-target="#exampleModal"> Editer </a>
+              <div class="col-12 col-md-6 row blockButton">
+                <div class="button_topic mx-3">
+                  <a type="button" class="btn btn-warning text-dark" data-toggle="modal" data-target="#exampleModal"> Editer </a>
+                </div>
+                <div class="button_topic mx-3">
+                  <a href=" deleteTopic.php?topicId=<?= $topic['id'] ?>&subcategoriesId=<?= $topic['subcategory_id'] ?>" class="btn btn-danger">Supprimer</a>
+                </div>
               </div>
-              <div class="button_topic mx-3">
-                <a href=" deleteTopic.php?topicId=<?= $topic['id'] ?>&subcategoriesId=<?= $topic['subcategory_id'] ?>" class="btn btn-danger">Supprimer</a>
-              </div>
-            </div>
             <?php } ?>
 
           </div>
@@ -97,20 +97,20 @@ if (isset($_POST['submit'])) {
             <div class="col-12 blocsouscat">
               <div class="col-12 row m-0 p-0">
                 <?php if (isset($connectedUser)) { ?>
-                <form action="topic.php?id=<?= $topic['id'] ?>" method="post">
-                  <div class="form-group">
-                    <label for="content">Ecrire un commentaire</label>
-                    <textarea class="form-control" maxlength="255" rows="10" cols="50" name="content" placeholder="Écrire un commentaire"></textarea>
+                  <form action="topic.php?id=<?= $topic['id'] ?>" method="post">
+                    <div class="form-group">
+                      <label for="content">Ecrire un commentaire</label>
+                      <textarea class="form-control" maxlength="255" rows="10" cols="50" name="content" placeholder="Écrire un commentaire"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <input type="submit" class="btn btn-primary mt-3" name="submit" value="Envoyer le commentaire">
+                    </div>
+                  </form>
+                <?php } else { ?>
+                  <div class="alert alert-info">
+                    <p>Vous devez être connecter pour pouvoir ajouté un commentaire.</p>
                   </div>
-                  <div class="form-group">
-                    <input type="submit" class="btn btn-primary mt-3" name="submit" value="Envoyer le commentaire">
-                  </div>
-              </form>
-          <?php } else { ?>
-              <div class="alert alert-info">
-                  <p>Vous devez être connecter pour pouvoir ajouté un commentaire.</p>
-              </div>
-          <?php } ?>
+                <?php } ?>
 
               </div>
 
@@ -131,11 +131,11 @@ if (isset($_POST['submit'])) {
                 </div>
                 <p class="font-13"><?= $comment["content"] ?></p>
                 <?php if (isset($connectedUser) && ($connectedUser["id"] == $comment["user_id"] || $connectedUser["role"] == "Admin" || $connectedUser["role"] == "Moderator")) { ?>
-                <div class="row">
-                  <div class="col-6 text-right">
-                    <a href="deleteComment.php?commentId=<?= $comment['id'] ?>&topicId=<?= $topic['id'] ?>" class="btn btn-danger" name="deleteComment">Supprimer</a>
+                  <div class="row">
+                    <div class="col-6 text-right">
+                      <a href="deleteComment.php?commentId=<?= $comment['id'] ?>&topicId=<?= $topic['id'] ?>" class="btn btn-danger" name="deleteComment">Supprimer</a>
+                    </div>
                   </div>
-                </div>
                 <?php } ?>
               </div>
           </div>
@@ -165,8 +165,12 @@ if (isset($_POST['submit'])) {
         </div>
       </div>
     </div>
-</div>
-    </main>
-        </div>
+  </div>
+  </main>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
 
 </html>
