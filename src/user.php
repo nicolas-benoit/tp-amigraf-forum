@@ -126,7 +126,7 @@ function compareUser($user)
 function pullUserByUsername($username)
 {
     dbInit();
-    $selectUser = dbExecute('SELECT * FROM users WHERE username=:username;', [[":username", $username, PDO::PARAM_STR]])[0];
+    $selectUser = dbExecute('SELECT * FROM users WHERE username=:username AND is_deleted=0;', [[":username", $username, PDO::PARAM_STR]])[0];
 
     return $selectUser;
 }
@@ -134,7 +134,7 @@ function pullUserByUsername($username)
 function pullUserByEmail($email)
 {
     dbInit();
-    $selectUser = dbExecute('SELECT * FROM users WHERE email=:email;', [[":email", $email, PDO::PARAM_STR]])[0];
+    $selectUser = dbExecute('SELECT * FROM users WHERE email=:email AND is_deleted=0;', [[":email", $email, PDO::PARAM_STR]])[0];
 
     return $selectUser;
 }

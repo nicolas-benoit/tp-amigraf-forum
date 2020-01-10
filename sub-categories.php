@@ -40,11 +40,6 @@ if (empty($subcategory))
               <p style="padding: 10px;"><?= $subcategory["name"] ?></p>
             </div>
             <?php if (isset($connectedUser)) { ?>
-            <div class="col-3  text-right">
-              <button type="button" class="btn btn-danger">
-                Supprimer la sous categorie
-              </button>
-            </div>
             <div class="col-2 text-right">
               <a class="btn btn-secondary" href="ajout-article.php?id=<?= $subcategory['id'] ?>">Ajouter un article</a>
             </div>

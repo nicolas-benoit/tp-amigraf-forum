@@ -81,7 +81,7 @@ if (isset($_POST['submit'])) {
 
           </div>
           <div class="col-12">
-            <p><?= $topic["content"] ?></p>
+            <p><?= nl2br($topic["content"]) ?></p>
           </div>
         </div>
         <div class="blocategorie">
@@ -129,7 +129,7 @@ if (isset($_POST['submit'])) {
                     <p class="text-right"><?= $comment["date"] ?></p>
                   </div>
                 </div>
-                <p class="font-13"><?= $comment["content"] ?></p>
+                <p class="font-13"><?= nl2br($comment["content"]) ?></p>
                 <?php if (isset($connectedUser) && ($connectedUser["id"] == $comment["user_id"] || $connectedUser["role"] == "Admin" || $connectedUser["role"] == "Moderator")) { ?>
                 <div class="row">
                   <div class="col-6 text-right">
