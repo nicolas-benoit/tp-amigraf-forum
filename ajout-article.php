@@ -4,6 +4,11 @@ include_once "src/user.php";
 include_once "src/subcategory.php";
 include_once "src/topic.php";
 include_once "src/session.php";
+include_once "src/utils.php";
+
+if (!checkIfConnected()) {
+    redirect("index.php");
+}
 
 if (isset($_POST['subject']) && !empty($_POST['subject'])) {
   $subject = htmlspecialchars($_POST['subject']);
@@ -15,6 +20,7 @@ if (isset($_POST['subject']) && !empty($_POST['subject'])) {
     $createTopic = linkSubcategoryToTopic($createTopic, pullSubcategory($_GET['id']));
     $createTopic = linkUserToTopic($createTopic, getConnectedUser());
     pushTopic($createTopic);
+    redirect("sub-categories.php?id=" . $_GET["id"]);
   }
 }
 
@@ -69,7 +75,6 @@ if (isset($_POST['subject']) && !empty($_POST['subject'])) {
 
     </main>
   </div>
-  <?php include("includes/footer.php") ?>
 
 </body>
 <!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>

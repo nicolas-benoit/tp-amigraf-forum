@@ -34,14 +34,12 @@ function pullTopic($id) {
     return $topic[0];
 }
 
-function pullTopicList($subcategory, $amount = 20, $offset = 0) {
+function pullTopicList($subcategory) {
     dbinit();
-    $sql = "SELECT * FROM topics WHERE is_deleted=0 AND subcategory_id=:subcategory_id ORDER BY date LIMIT :amount OFFSET :offset;";
+    $sql = "SELECT * FROM topics WHERE is_deleted=0 AND subcategory_id=:subcategory_id ORDER BY date DESC;";
 
     $topicList = dbExecute($sql, [
         [":subcategory_id", $subcategory["id"], PDO::PARAM_INT],
-        [":amount", $amount, PDO::PARAM_INT],
-        [":offset", $offset, PDO::PARAM_INT]
     ]);
 
     return $topicList;

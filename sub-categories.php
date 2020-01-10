@@ -36,12 +36,15 @@ if (empty($subcategory))
       <div class="blocategorie">
         <div class="titrecat">
           <div class="row m-0 p-0">
-            <div class="col-12 col-md-6">
-              <p style="padding: 10px;"><?= $subcategory["name"] ?></p>
+            <div class="col-12 col-md-6 blockTitle_topic">
+              <p style="padding: 10px; width: 100%;"><?= $subcategory["name"] ?></p>
             </div>
-            <div class="col-12 col-md-6 text-right button_topic">
-              <a class="btn btn-secondary" href="ajout-article.php?id=<?= $subcategory['id'] ?>">Ajouter un article</a>
-            </div>
+
+            <?php if (isset($connectedUser)) { ?>
+              <div class="col-12 col-md-6 text-right button_topic">
+                <a class="btn btn-secondary" href="ajout-article.php?id=<?= $subcategory['id'] ?>">Ajouter un article</a>
+              </div>
+            <?php } ?>
           </div>
 
 
@@ -54,10 +57,10 @@ if (empty($subcategory))
               <a class="topica" href="topic.php?id=<?= $topic["id"] ?>">
                 <div class="blocsouscat">
                   <div class="row m-0 p-0">
-                    <div class="col-9">
+                    <div class="col-12 col-sm-6">
                       <p class="tittresouscat"><?= $topic["name"] ?></p>
                     </div>
-                    <div class="col-3">
+                    <div class="col-12 col-sm-6">
                       Date : <?= $topic["date"] ?>
                     </div>
                   </div>
@@ -66,10 +69,5 @@ if (empty($subcategory))
           <?php } ?>
           </a>
         </div>
-    </main>
-  </div>
-  <?php include("includes/footer.php") ?>
-
-</body>
 
 </html>

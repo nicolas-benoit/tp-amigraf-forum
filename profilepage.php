@@ -1,6 +1,8 @@
 <?php
+session_start();
 
 include_once "src/user.php";
+include_once "src/session.php";
 include_once "src/utils.php";
 
 if (!isset($_GET["id"]) || intval($_GET["id"]) <= 0)
@@ -13,7 +15,6 @@ if (empty($user))
 
 $stat = pullUserStat($user);
 
-session_start(); 
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -22,18 +23,26 @@ session_start();
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <meta charset="utf-8">
-    <title>Page de Profil</title>
+    <title>Page de <?= $user["username"] ?></title>
 </head>
 
 <body>
 
     <?php include("includes/header.php") ?>
 
+    <div class="d-flex">
+      <?php include("includes/sidebar.php") ?>
+    <main>
+
     <div class="row profilePage">
         <section class="col-12 col-md-8 contentProfile_Block">
             <div class="usernameBlock">
                 <div class="usernameBlock">
-                    <h2 class="username">Tout à propos de <?= $user["username"]?></h2>
+                    <?php if($user["id"] == $connectedUser["id"]) { ?>
+                        <h2 class="username">Vos informations</h2>
+                    <?php } else { ?>
+                        <h2 class="username">Tout à propos de <?= $user["username"]?></h2>
+                    <?php } ?>
                 </div>
             </div>
             <div class="contentBlock">
@@ -48,14 +57,19 @@ session_start();
         </section>
         <section class="col-12 col-md-3 imgProfile_Block">
             <div class="usernameBlock">
+                <?php if($user["id"] == $connectedUser["id"]) { ?>
+                <h2 class="username">Votre avatar</h2>
+                <?php } else { ?>
                 <h2 class="username"><?= $user["username"]?></h2>
+                <?php } ?>
             </div>
             <div class="imgBlock">
                 <img src="img/kirby.png" alt="image profile">
             </div>
         </section>
     </div>
-
+    </main>
+</div>
 </body>
 
 </html>

@@ -7,7 +7,7 @@ include_once "src/utils.php";
 if (isset($_GET["page"]))
 {
     $page = intval($_GET["page"]);
-    if ($page == 0) $page = 1;
+    if ($page <= 0) $page = 1;
 }
 else $page = 1;
 
@@ -16,8 +16,6 @@ $userCount = pullUserCount();
 $lastpage = ceil($userCount / 20);
 
 if ($page > $lastpage) redirect("members.php?page=" . $lastpage);
-
-session_start();
 
 ?>
 
@@ -56,14 +54,12 @@ session_start();
         </div>
         <div class="row align-items-center">
           <div class="col-12 pt-20">
-            <div>
                 <?php if ($page > 1) { ?>
                     <a href="/members.php?page=<?= $page - 1 ?>" type="button" class="btn btn-primary">Page Précédent</a>
                 <?php }
                 if ($page < $lastpage) { ?>
                     <a href="/members.php?page=<?= $page + 1 ?>" type="button" class="btn btn-primary">Page Suivant</a>
                 <?php } ?>
-            </div>
           </div>
         </div>
 
@@ -71,7 +67,6 @@ session_start();
       </div>
     </main>
         </div>
-        <?php include("includes/footer.php") ?>
 
 
   </body>

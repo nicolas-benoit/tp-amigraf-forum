@@ -38,7 +38,7 @@ if (isset($_POST['register'])) {
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
   <meta charset="utf-8">
-  <title></title>
+  <title>S'inscrire</title>
 </head>
 
 <body>
@@ -48,20 +48,6 @@ if (isset($_POST['register'])) {
 
     <?php include("includes/sidebar.php") ?>
     <main>
-      <div class="blocaccueil">
-        <div class="row">
-
-          <div class="col-8">
-            <h1>Bienvenue sur le forum</h1>
-            <p>Lorem ipsum d'index.php'
-              olor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-          </div>
-          <div class="col-4">
-            <img src="" alt="">
-          </div>
-        </div>
-      </div>
       <div class="blocategorie">
         <div class="titrecat">
           <div style="padding: 10px;">
@@ -77,11 +63,11 @@ if (isset($_POST['register'])) {
             <form class="" action="register.php" method="post">
 
                     <label for="pseudo2">Votre pseudo</label>
-                    <input type="text" class="inputlogin" name="username" placeholder="Pseudo">
+                    <input type="text" class="inputlogin" name="username" placeholder="Pseudo" required>
                     <label for="mail">Votre e-mail</label>
-                    <input type="email" class="inputlogin" name="email" placeholder="Votre adresse e-mail">
+                    <input type="email" class="inputlogin" name="email" placeholder="Votre adresse e-mail" required>
                     <label for="password">Votre mot de passe</label>
-                    <input type="password" class="inputlogin" name="password" placeholder="Votre mot de passe">
+                    <input type="password" class="inputlogin" name="password" placeholder="Votre mot de passe" required>
 
           </div>
           <div class="col-2">
@@ -99,7 +85,6 @@ if (isset($_POST['register'])) {
       </div>
     </main>
   </div>
-  <?php include("includes/footer.php") ?>
 </body>
 
 </html>
