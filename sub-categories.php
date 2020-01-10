@@ -35,20 +35,12 @@ if (empty($subcategory))
     <main>
       <div class="blocategorie">
         <div class="titrecat">
-          <div class="row">
-            <div class="col-7">
+          <div class="row m-0 p-0">
+            <div class="col-12 col-md-6">
               <p style="padding: 10px;"><?= $subcategory["name"] ?></p>
             </div>
-            <div class="col-3  text-right">
-              <button type="button" class="btn btn-danger">
-                Supprimer la sous categorie
-              </button>
-            </div>
-            <div class="col-2 text-right">
+            <div class="col-12 col-md-6 text-right button_topic">
               <a class="btn btn-secondary" href="ajout-article.php?id=<?= $subcategory['id'] ?>">Ajouter un article</a>
-            </div>
-            <div class="col-2 text-right">
-
             </div>
           </div>
 
@@ -61,7 +53,7 @@ if (empty($subcategory))
             <div class="col-12">
               <a class="topica" href="topic.php?id=<?= $topic["id"] ?>">
                 <div class="blocsouscat">
-                  <div class="row">
+                  <div class="row m-0 p-0">
                     <div class="col-9">
                       <p class="tittresouscat"><?= $topic["name"] ?></p>
                     </div>

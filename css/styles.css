@@ -402,7 +402,7 @@ p {
 .button_topic {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .addTopic,
@@ -432,7 +432,8 @@ p {
     height: auto;
   }
 
-  .blockButton {
+  .blockButton,
+  .button_topic {
     justify-content: center;
     margin-top: 5px;
   }
