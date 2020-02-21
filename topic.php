@@ -76,12 +76,14 @@ if (isset($_POST['submit'])) {
 
 
           <div class="col-12">
-            <p class="tittresouscat">Par <a href="profilepage.php?id=<?= $topicUser["id"] ?>"><?= $topicUser["username"] ?></a></p>
-            <p><?= $topic["date"] ?></p>
+
 
           </div>
           <div class="col-12">
             <p><?= nl2br($topic["content"]) ?></p>
+
+            <p class="tittresouscat mt-3">Par <a href="profilepage.php?id=<?= $topicUser["id"] ?>"><?= $topicUser["username"] ?></a></p>
+            <p><?= $topic["date"] ?></p>
           </div>
         </div>
         <div class="blocategorie">

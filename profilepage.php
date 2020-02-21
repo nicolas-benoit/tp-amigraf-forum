@@ -34,18 +34,25 @@ $stat = pullUserStat($user);
         <?php include("includes/sidebar.php") ?>
         <main>
 
-            <div class="row profilePage m-0 p-0">
-                <section class="col-12 col-md-8 contentProfile_Block">
-                    <div class="usernameBlock">
-                        <div class="usernameBlock">
+          <div class="blocategorie">
+                    <div class="titrecat">
+                        <div style="padding: 10px;">
+                            <p> Tout à propos de <?= $user["username"] ?></p>
+
+                        </div>
+                    </div>
+                    <div class="row">
+
+
+                <div class="col-12 col-md-8 ">
+
                             <?php if (isset($connectedUser) && $user["id"] == $connectedUser["id"]) { ?>
                                 <h2 class="username">Vos informations</h2>
                             <?php } else { ?>
-                                <h2 class="username">Tout à propos de <?= $user["username"] ?></h2>
+                                <h2 class="username"></h2>
                             <?php } ?>
-                        </div>
-                    </div>
-                    <div class="contentBlock">
+
+
                         <ul>
                             <li class="listContent my-3">Email : <?= $user["email"] ?></li>
                             <li class="listContent my-3">Rôle : <?= $user["role"] ?></li>
@@ -53,20 +60,21 @@ $stat = pullUserStat($user);
                             <li class="listContent my-3">Date de naissance :</li>
                             <li class="listContent my-3">Nombre de topics : <?= $stat["topic_count"] ?></li>
                             <li class="listContent my-3">Nombre de commentaires : <?= $stat["comment_count"] ?></li>
-                    </div>
-                </section>
-                <section class="col-12 col-md-3 imgProfile_Block">
-                    <div class="usernameBlock">
-                        <?php if (isset($connectedUser) && $user["id"] == $connectedUser["id"]) { ?>
-                            <h2 class="username">Votre avatar</h2>
-                        <?php } else { ?>
-                            <h2 class="username"><?= $user["username"] ?></h2>
-                        <?php } ?>
-                    </div>
+                      </ul>
+                </div>
+                <div class="col-12 col-md-3 ">
+
+                        <?php // if (isset($connectedUser) && $user["id"] == $connectedUser["id"]) { ?>
+                            <!-- <h2 class="username">Votre avatar</h2> -->
+                        <?php // } else { ?>
+                            <!-- <h2 class="username"><?= $user["username"] ?></h2> -->
+                        <?php // } ?>
+
                     <div class="imgBlock">
                         <img src="img/kirby.png" alt="image profile">
                     </div>
-                </section>
+                </div>
+                    </div>
             </div>
         </main>
     </div>

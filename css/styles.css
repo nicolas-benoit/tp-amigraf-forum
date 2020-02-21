@@ -4,8 +4,7 @@ body {
 }
 
 header {
-  background: #2f2f2f;
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background-color: black;
 }
 
 aside {
@@ -77,26 +76,23 @@ input {
   padding: 6px;
   color: #747474;
   margin-bottom: 8px;
-  border-radius: 4px;
+  /* border-radius: 4px; */
 }
 
 .inputsubmit {
   background: linear-gradient(to right, #0e68b2 1%, #005cd6 35%, #005cd6 69%, #2a55aa 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   border: 0px;
   color: white;
   padding: 4px;
   font-weight: 600;
   margin-bottom: 15px;
-  /* width: 70%;*/
   margin: 10px 0px;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   box-shadow: 0 1.5px 6px rgba(0, 0, 0, .4);
 }
 
 .inputsubmit2 {
   background: linear-gradient(to right, #0e68b2 1%, #005cd6 35%, #005cd6 69%, #2a55aa 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   border: 0px;
   color: white;
   padding: 4px;
@@ -105,7 +101,7 @@ input {
   width: 30%;
   margin: 10px 0px;
   margin-bottom: 50px;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   box-shadow: 0 1.5px 6px rgba(0, 0, 0, .4);
 }
 
@@ -124,20 +120,23 @@ input {
 .blocategorie {
   box-shadow: 0px 0px 22px -5px rgba(170, 170, 170, 1);
   background-color: white;
-  margin-bottom: 10px;
-  border-radius: 10px;
+  margin-bottom: 25px;
+
+  /* border-radius: 10px; */
 }
 
 .titrecat {
   background: linear-gradient(to right, #0e68b2 1%, #005cd6 35%, #005cd6 69%, #2a55aa 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
   color: white;
-  border-radius: 5px 5px 0 0;
+  /* border-radius: 5px 5px 0 0; */
 }
 
 .titrecat p {
   font-weight: 600;
   font-size: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 p {
@@ -145,8 +144,13 @@ p {
 }
 
 .blocsouscat {
-  border-bottom: 1px solid #106bc9;
-  padding: 25px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+
+.blocsouscat:hover {
+  background: #e8e8e8;
 }
 
 .tittresouscat {

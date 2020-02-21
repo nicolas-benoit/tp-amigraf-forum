@@ -44,7 +44,7 @@ if (checkIfConnected()) {
       </div>
     </div> -->
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg">
     <a href="index.php"><img class="imgLogo" width="40%" src="img/logo-avengers.png" alt="logo du forum"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
